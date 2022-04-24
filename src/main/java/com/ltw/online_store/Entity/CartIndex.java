@@ -12,22 +12,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class OrderDetails {
+public class CartIndex {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    private long unitPrice;
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
 }

@@ -1,5 +1,6 @@
 package com.ltw.online_store.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Manufacturer {
 
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "manufacturer")
     private List<Product> products;
 

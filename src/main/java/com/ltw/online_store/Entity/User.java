@@ -1,11 +1,13 @@
 package com.ltw.online_store.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -24,6 +26,7 @@ public class User {
 
     private String email;
 
+    @JsonIgnore
     private String password;
 
     @ManyToMany
@@ -31,6 +34,13 @@ public class User {
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> role;
+
+
+
+    @JsonIgnore
+    @Transient
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     public Long getId() {
         return id;
