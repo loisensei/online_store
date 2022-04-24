@@ -18,7 +18,6 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "username")
@@ -36,11 +35,10 @@ public class User {
     private Set<Role> role;
 
 
-
     @JsonIgnore
     @Transient
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    private List<Orders> orders;
 
     public Long getId() {
         return id;

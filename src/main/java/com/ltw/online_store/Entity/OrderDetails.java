@@ -15,7 +15,6 @@ import javax.persistence.*;
 public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @OneToOne
@@ -27,7 +26,7 @@ public class OrderDetails {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private Order order;
+    private Orders orders;
 
 
 }

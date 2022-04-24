@@ -16,13 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderDetails> listDetails;
+    @OneToMany(mappedBy = "orders")
+    private List<OrderDetails> Details;
 
     private String address;
     private String phoneNumber;
@@ -42,7 +42,7 @@ public class Order {
 
     private String orderStatus;
 
-    @ManyToOne(optional = true)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 

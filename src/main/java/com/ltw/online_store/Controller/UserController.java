@@ -12,5 +12,9 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/user_home")
+    public String homePage(){
+        return "web/home";
+    }
 
 }
