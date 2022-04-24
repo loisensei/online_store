@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-user home
-    <div>${SPRING_SECURITY_LAST_USERNAME}</div>
+admin home
+    <div>${SPRING_SECURITY_LAST_EXCEPTION}</div>
 </body>
 </html>

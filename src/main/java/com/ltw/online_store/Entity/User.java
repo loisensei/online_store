@@ -40,6 +40,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Orders> orders;
 
+    public User(String name, String email, String password) {
+        this.userName = name;
+        this.email = email;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }

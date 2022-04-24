@@ -1,9 +1,6 @@
 package com.ltw.online_store.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -24,6 +21,10 @@ public class Role {
 
     @ManyToMany(mappedBy = "role")
     private Set<User> user;
+
+    public Role(String roleName) {
+        this.roleName = roleName;
+    }
 
     public Long getId() {
         return id;

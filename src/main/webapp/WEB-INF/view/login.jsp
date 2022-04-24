@@ -23,11 +23,11 @@
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
-                <input class="text" type="text" name="Username" placeholder="Username" required="required">
+                <input class="text" type="text" name="username" placeholder="Username" required="required">
                 <input class="text email" type="password" name="password" placeholder="password" required="required">
                 <div class="wthree-text">
                     <label class="anim">
-                        <input type="checkbox" class="checkbox" required="">
+                        <input type="checkbox" class="checkbox" name = "rememberMe">
                         <span>I Agree To The Terms & Conditions</span>
                     </label>
                     <div class="clear"> </div>
