@@ -53,4 +53,16 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Set<Role> getRole() {
+        return role;
+    }
 }
