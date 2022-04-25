@@ -36,7 +36,7 @@
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li class="nav-item">
-                        <p class = "nav-link">Welcome : ${loggerInUser.userName}</p>
+                        <p class = "nav-link">Welcome : ${loggerInUser.fullName}</p>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Account</a>

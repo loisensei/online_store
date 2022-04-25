@@ -5,12 +5,15 @@ import com.ltw.online_store.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.net.Authenticator;
 
 @Controller
@@ -37,8 +40,12 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logoutPage(){
-        return null;
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response){
+        Authentication au = SecurityContextHolder.getContext().getAuthentication();
+        if(au != null){
+            new SecurityContextLogoutHandler().logout(request, response,au);
+        }
+        return "redirect:/login?logout";
     }
 
 }
