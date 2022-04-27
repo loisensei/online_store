@@ -30,6 +30,10 @@ public class User {
     @JsonIgnore
     private String password;
 
+    @Transient
+    @JsonIgnore
+    private String confirmPassword;
+
     @ManyToMany
     @JoinTable(name = "role_user",
     joinColumns = @JoinColumn(name = "user_id"),
@@ -48,14 +52,6 @@ public class User {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -66,5 +62,17 @@ public class User {
 
     public Set<Role> getRole() {
         return role;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRole(Set<Role> role) {
+        this.role = role;
     }
 }

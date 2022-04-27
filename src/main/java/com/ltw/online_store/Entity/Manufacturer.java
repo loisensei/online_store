@@ -1,10 +1,7 @@
 package com.ltw.online_store.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,10 +17,14 @@ public class Manufacturer {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NonNull
     private String name;
 
     @JsonIgnore
     @OneToMany(mappedBy = "manufacturer")
     private List<Product> products;
 
+    public Manufacturer(String name) {
+        this.name = name;
+    }
 }

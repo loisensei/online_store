@@ -167,7 +167,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 input.email, input.text.w3lpass {
-    margin: 2em 0;
+    margin-bottom: 2em;
+}
+
+.text {
+    margin-bottom: 2em;
 }
 
 .text:focus, .text:valid {
@@ -760,4 +764,8 @@ input.checkbox:checked:after {
     .main-w3layouts {
         padding: 1em 0 0;
     }
+}
+
+.error {
+    color: #5f0b0b;
 }

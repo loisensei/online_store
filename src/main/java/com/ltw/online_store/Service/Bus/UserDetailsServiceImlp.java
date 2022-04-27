@@ -30,6 +30,7 @@ public class UserDetailsServiceImlp implements UserDetailsService {
         }
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         Set<Role> roles = user.getRole();
+        System.out.println(roles);
         for (Role role : roles) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
         }

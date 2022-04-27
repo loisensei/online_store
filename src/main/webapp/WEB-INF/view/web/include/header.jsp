@@ -5,10 +5,13 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
 <!--begin of menu-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="home">Shoes</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/">Shoes</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,16 +30,19 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Hello Alias</a>
+                    <a class="nav-link" href="/contact">Contacts</a>
                 </li>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/login">Login</a>
                 </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=request.getContextPath()%>/register">Register</a>
+                    </li>
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li class="nav-item">
-                        <p class = "nav-link">Welcome : ${loggerInUser.fullName}</p>
+                        <p class = "nav-link">Welcome : ${loggerInUser.userName}</p>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Account</a>
@@ -56,7 +62,7 @@
                         </button>
                     </div>
                 </div>
-                <a class="btn btn-success btn-sm ml-3" href="show">
+                <a class="btn btn-success btn-sm ml-3" href="/cart">
                     <i class="fa fa-shopping-cart"></i> Cart
                     <span class="badge badge-light">4</span>
                 </a>

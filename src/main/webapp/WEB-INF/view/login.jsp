@@ -42,7 +42,7 @@
         </c:if>
         <div class="agileits-top">
             <form action="${pageContext.request.contextPath}" method="post">
-                <input class="text" type="text" name="username" placeholder="Username" required="required">
+                <input class="text" type="text" name="username" placeholder="Username" required="required"/>
                 <input class="text email" type="password" name="password" placeholder="password" required="required">
                 <div class="wthree-text">
                     <label class="anim">
@@ -57,6 +57,7 @@
         </div>
     </div>
 </div>
+
 
 </body>
 </html>
