@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/manufacturer")
-public class ManufacturerApi {
+public class BrandApi {
 
 
 }

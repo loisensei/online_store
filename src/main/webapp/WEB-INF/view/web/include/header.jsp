@@ -19,10 +19,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Manager Account</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Cửa hàng <span class="caret"></span></a>
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Stores<span class="caret"></span></a>
                     <ul class="dropdown-menu" >
                         <li><a class="dropdown-item" href="">item 1</a></li>
                         <li><a class="dropdown-item" href="">item 1</a></li>

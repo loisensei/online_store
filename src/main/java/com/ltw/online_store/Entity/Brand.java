@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Manufacturer {
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -21,10 +21,10 @@ public class Manufacturer {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "manufacturer")
+    @OneToMany(mappedBy = "brand")
     private List<Product> products;
 
-    public Manufacturer(String name) {
+    public Brand(String name) {
         this.name = name;
     }
 }

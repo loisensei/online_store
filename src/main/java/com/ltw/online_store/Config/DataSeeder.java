@@ -4,6 +4,7 @@ import com.ltw.online_store.Entity.Role;
 import com.ltw.online_store.Entity.User;
 import com.ltw.online_store.Repository.RoleRepository;
 import com.ltw.online_store.Repository.UserRepository;
+import com.ltw.online_store.Service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -21,31 +22,34 @@ public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
    private RoleRepository roleRepository;
 
    @Autowired
+   private RoleService roleService;
+
+   @Autowired
    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         if(roleRepository.findByRoleName("ADMIN") == null){
-            roleRepository.save(new Role("ADMIN"));
+            roleRepository.save(new Role("ROLE_ADMIN"));
         }
 
         if(roleRepository.findByRoleName("USER") == null){
-            roleRepository.save(new Role("USER"));
+            roleRepository.save(new Role("ROLE_USER"));
         }
 
         if(userRepository.findByUserName("admin") == null){
             User user = new User("admin","loitran299@gmail.com", passwordEncoder.encode("123456"));
-            HashSet<Role> roles = new HashSet<Role>();
-            roles.add(roleRepository.findByRoleName("ADMIN"));
-            user.setRole(roles);
+//            HashSet<Role> roles = new HashSet<Role>();
+//            roles.add(roleRepository.findByRoleName("ROLE_ADMIN"));
+            user.setRole(roleService.getRoleAdmins());
             userRepository.save(user);
         }
 
         if(userRepository.findByUserName("user1") == null){
             User user = new User("user1","user@gmail.com", passwordEncoder.encode("123456"));
-            HashSet<Role> roles = new HashSet<Role>();
-            roles.add(roleRepository.findByRoleName("USER"));
-            user.setRole(roles);
+//            HashSet<Role> roles = new HashSet<Role>();
+//            roles.add(roleRepository.findByRoleName("ROLE_USER"));
+            user.setRole(roleService.getRoleUsers());
             userRepository.save(user);
         }
     }

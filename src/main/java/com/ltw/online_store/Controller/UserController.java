@@ -50,7 +50,6 @@ public class UserController {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
         String userName = au.getName();
         System.out.println(userName);
-        model.addAttribute("lastUserName",userName);
         if(au != null){
             new SecurityContextLogoutHandler().logout(request, response,au);
         }

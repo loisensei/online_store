@@ -21,15 +21,15 @@ public class SimpleAuthentication implements AuthenticationSuccessHandler {
             throws IOException, ServletException {
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         authorities.forEach(authority -> {
-            if(authority.getAuthority().equals("USER")) {
+            if(authority.getAuthority().equals("ROLE_USER")) {
                 try {
                     redirectStrategy.sendRedirect(request,response,"/user_home");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }else if(authority.getAuthority().equals("ADMIN")){
+            }else if(authority.getAuthority().equals("ROLE_ADMIN")){
                 try {
-                    redirectStrategy.sendRedirect(request,response,"/admin_home");
+                    redirectStrategy.sendRedirect(request,response,"/admin/admin_home");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -33,11 +33,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(User user) {
         Set<Role> roles = new HashSet<Role>();
-        roles.add(roleRepository.findByRoleName("USER"));
+        roles.add(roleRepository.findByRoleName("ROLE_USER"));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRole(roles);
 
         userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
     }
 
 

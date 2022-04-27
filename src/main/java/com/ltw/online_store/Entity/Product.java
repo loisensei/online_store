@@ -36,8 +36,8 @@ public class Product {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "manufacturer_id")
-    private Manufacturer manufacturer;
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     private String detail;
 }
