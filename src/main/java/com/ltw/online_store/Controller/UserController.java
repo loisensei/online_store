@@ -45,6 +45,11 @@ public class UserController {
         return "web/contact";
     }
 
+    @GetMapping("/profile")
+    public String profilePage(){
+        return "web/profile";
+    }
+
     @GetMapping("/logout")
     public String logoutPage(HttpServletRequest request, HttpServletResponse response, Model model){
         Authentication au = SecurityContextHolder.getContext().getAuthentication();

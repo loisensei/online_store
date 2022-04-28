@@ -1,5 +1,6 @@
 package com.ltw.online_store.Service.Bus;
 
+import com.ltw.online_store.Dto.UserDto;
 import com.ltw.online_store.Entity.Role;
 import com.ltw.online_store.Entity.User;
 import com.ltw.online_store.Repository.RoleRepository;
@@ -48,6 +49,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(Long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public User getById(Long id) {
+        return userRepository.findById(id).get();
+    }
+
+    @Override
+    public void updateUser(UserDto user) {
+        User oldUser = userRepository.findByUserName(user.getUserName());
+        if (user.getPassword()!="") {
+            oldUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        }
+        oldUser.setEmail(user.getEmail());
+        oldUser.setAddress(user.getAddress());
+        oldUser.setFullName(user.getFullName());
+        userRepository.save(oldUser);
     }
 
 

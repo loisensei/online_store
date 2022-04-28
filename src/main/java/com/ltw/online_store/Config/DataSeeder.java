@@ -29,11 +29,11 @@ public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        if(roleRepository.findByRoleName("ADMIN") == null){
+        if(roleRepository.findByRoleName("ROLE_ADMIN") == null){
             roleRepository.save(new Role("ROLE_ADMIN"));
         }
 
-        if(roleRepository.findByRoleName("USER") == null){
+        if(roleRepository.findByRoleName("ROLE_USER") == null){
             roleRepository.save(new Role("ROLE_USER"));
         }
 

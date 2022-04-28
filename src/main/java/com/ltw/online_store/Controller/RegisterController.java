@@ -39,7 +39,7 @@ public class RegisterController {
         if (bindingResult.hasErrors()) {
             return "register";
         }
-
+        System.out.println(user);
         userService.saveUser(user);
 
         securityService.autoLogin(user.getUserName(), user.getPassword());

@@ -73,9 +73,6 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <!-- 								<div class="form-group">
-                                                                <input type="hidden" class="form-control" name="id" />
-                                                            </div> -->
                             <div class="form-group">
                                 <label for="name">Email</label> <input type="email" class="form-control" name="email" required />
                             </div>

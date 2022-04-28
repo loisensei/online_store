@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.aspectj.weaver.ast.Not;
 
 import javax.persistence.*;
+import java.lang.annotation.Repeatable;
 import java.util.List;
 import java.util.Set;
 
@@ -22,7 +24,8 @@ public class User {
 
     private String fullName;
 
-    @Column(name = "username")
+
+    @Column(name = "username",unique = true)
     private String userName;
 
     private String email;
@@ -37,6 +40,7 @@ public class User {
     private String confirmPassword;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "role_user",
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))

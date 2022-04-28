@@ -42,10 +42,7 @@
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li class="nav-item">
-                        <p class = "nav-link">Welcome : ${loggerInUser.userName}</p>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link" href="<%=request.getContextPath()%>/profile">Welcome : ${loggerInUser.userName}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<%=request.getContextPath()%>/logout">Logout</a>
