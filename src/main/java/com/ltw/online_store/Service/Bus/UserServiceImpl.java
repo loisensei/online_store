@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Service
@@ -59,13 +60,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(UserDto user) {
         User oldUser = userRepository.findByUserName(user.getUserName());
-        if (user.getPassword()!="") {
+        if (!Objects.equals(user.getPassword(), "")) {
             oldUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }
         oldUser.setEmail(user.getEmail());
         oldUser.setAddress(user.getAddress());
         oldUser.setFullName(user.getFullName());
         userRepository.save(oldUser);
+    }
+
+    @Override
+    public void saveUser(UserDto user) {
+        User newUser = new User();
+        newUser.setUserName(user.getUserName());
+        newUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        newUser.setEmail(user.getEmail());
+        newUser.setAddress(user.getAddress());
+        Set<Role> roles = new HashSet<Role>();
+        roles.add(roleRepository.findByRoleName(user.getRoleName()));
+        newUser.setRole(roles);
+        userRepository.save(newUser);
     }
 
 

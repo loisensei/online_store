@@ -34,9 +34,15 @@ public class AdminController {
         return "admin/home";
     }
 
+    @GetMapping("/profile")
+    public String profilePage(){
+        return "admin/profile";
+    }
+
     @GetMapping("/account-management")
     public String accountManagementPage(Model model){
         model.addAttribute("users",userService.getAll());
+        model.addAttribute("roles",roleService.getAll());
         return "admin/accountManagement";
     }
 

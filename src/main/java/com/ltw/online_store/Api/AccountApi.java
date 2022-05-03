@@ -35,4 +35,14 @@ public class AccountApi {
         model.addAttribute("loggerInUser",user);
         userService.updateUser(user);
     }
+
+    @GetMapping("/get/all")
+    public ResponseEntity<?> getAllAccounts(){
+        return ResponseEntity.ok(userService.getAll());
+    }
+
+    @PostMapping("/save")
+    public void saveAccount(@RequestBody UserDto user, Model model){
+        userService.saveUser(user);
+    }
 }

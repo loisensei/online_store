@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+
 @Data
 public class UserDto implements Serializable {
     private final Long id;
@@ -11,5 +12,16 @@ public class UserDto implements Serializable {
     private final String userName;
     private final String email;
     private final String address;
-    private final String password;
+    private String password;
+    private final String roleName;
+
+    public UserDto(Long id, String fullName, String userName, String email, String address, String roleName){
+        this.id = id;
+        this.fullName = fullName;
+        this.userName = userName;
+
+        this.email = email;
+        this.address = address;
+        this.roleName = roleName;
+    }
 }

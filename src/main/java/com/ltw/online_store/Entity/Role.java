@@ -1,5 +1,6 @@
 package com.ltw.online_store.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Role {
     @Column(name = "name")
     private String roleName;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "role")
     private Set<User> user;
 

@@ -39,16 +39,12 @@ public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
         if(userRepository.findByUserName("admin") == null){
             User user = new User("admin","loitran299@gmail.com", passwordEncoder.encode("123456"));
-//            HashSet<Role> roles = new HashSet<Role>();
-//            roles.add(roleRepository.findByRoleName("ROLE_ADMIN"));
             user.setRole(roleService.getRoleAdmins());
             userRepository.save(user);
         }
 
         if(userRepository.findByUserName("user1") == null){
             User user = new User("user1","user@gmail.com", passwordEncoder.encode("123456"));
-//            HashSet<Role> roles = new HashSet<Role>();
-//            roles.add(roleRepository.findByRoleName("ROLE_USER"));
             user.setRole(roleService.getRoleUsers());
             userRepository.save(user);
         }

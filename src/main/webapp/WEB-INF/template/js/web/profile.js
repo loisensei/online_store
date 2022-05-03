@@ -17,7 +17,7 @@ profile_form.addEventListener("submit",function (e){
         'address': address.value,
         'password': confirmPassword.value
     };
-    if (newPassword.value != confirmPassword.value){
+    if (newPassword.value !== confirmPassword.value){
         document.getElementById('warn-cf-pass').innerHTML = "password incorrect!";
     }else {
         const url = "http://localhost:8080/api/account/update";
