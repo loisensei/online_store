@@ -5,10 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Not;
 
 import javax.persistence.*;
-import java.lang.annotation.Repeatable;
 import java.util.List;
 import java.util.Set;
 

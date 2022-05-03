@@ -18,6 +18,7 @@ public class Brand {
     private Long id;
 
     @NonNull
+    @Column(unique = true)
     private String name;
 
     @JsonIgnore

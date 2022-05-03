@@ -6,6 +6,7 @@ import com.ltw.online_store.Entity.User;
 import java.util.List;
 
 public interface UserService {
+    boolean nguoiDungTonTai(String username);
     User findByUserName(String userName);
     void saveUser(User user);
     List<User> getAll();

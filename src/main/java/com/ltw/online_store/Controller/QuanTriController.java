@@ -10,12 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 @SessionAttributes("loggerInUser")
 @RequestMapping("/admin")
-public class AdminController {
+public class QuanTriController {
 
     @Autowired
     private UserService userService;
@@ -37,6 +35,11 @@ public class AdminController {
     @GetMapping("/profile")
     public String profilePage(){
         return "admin/profile";
+    }
+
+    @GetMapping("/brand")
+     public String brandPage() {
+        return "admin/brand";
     }
 
     @GetMapping("/account-management")

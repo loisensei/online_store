@@ -28,6 +28,12 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    public boolean nguoiDungTonTai(String username) {
+        if(userRepository.findByUserName(username) != null) return true;
+        return false;
+    }
+
+    @Override
     public User findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }

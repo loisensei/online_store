@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="side-bar">
-                    <a href='<c:url value="/admin/nhan-hieu"/>' >
+                    <a href='<c:url value="/admin/brand"/>' >
                         <span class="glyphicon glyphicon-flag">&nbsp;</span>Brand</a>
                 </li>
 

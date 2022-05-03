@@ -1,19 +1,18 @@
 package com.ltw.online_store.Api;
 
 import com.ltw.online_store.Dto.UserDto;
-import com.ltw.online_store.Entity.User;
+import com.ltw.online_store.Entity.DoiTuongTraVe;
 import com.ltw.online_store.Service.RoleService;
 import com.ltw.online_store.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @SessionAttributes("loggerInUser")
 @RequestMapping("/api/account")
-public class AccountApi {
+public class TaiKhoanApi {
     @Autowired
     private UserService userService;
 
@@ -42,7 +41,18 @@ public class AccountApi {
     }
 
     @PostMapping("/save")
-    public void saveAccount(@RequestBody UserDto user, Model model){
-        userService.saveUser(user);
+    public DoiTuongTraVe saveAccount(@RequestBody UserDto user, Model model){
+        DoiTuongTraVe doiTuongTraVe = new DoiTuongTraVe();
+        if(userService.nguoiDungTonTai(user.getUserName())) {
+            doiTuongTraVe.setThongBao("Tên người dùng đã tồn tại!");
+            doiTuongTraVe.setTrangThai("loi");
+            return doiTuongTraVe;
+        }
+        else {
+            doiTuongTraVe.setThongBao("Thêm tài khoản thành công");
+            doiTuongTraVe.setTrangThai("thanhcong");
+            userService.saveUser(user);
+        }
+        return doiTuongTraVe;
     }
 }

@@ -16,7 +16,7 @@
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
             <div class="form-group col-md-2">
-            <label for="inputState">Role:</label>
+            <label for="role">Vai Trò:</label>
             <select id="role" class="form-control" name="role">
                 <option selected>USER</option>
                 <option>ADMIN</option>
@@ -39,15 +39,15 @@
     </form>
     <hr>
 
-    <table class="table table-hover taiKhoanTable" style="text-align: center;">
+    <table class="table table-hover" style="text-align: center;">
         <thead>
         <tr>
-            <th>id</th>
-            <th>Username</th>
+            <th>Mã</th>
+            <th>Tên đăng nhập</th>
             <th>Email</th>
-            <th>Full Name</th>
-            <th>Address</th>
-            <th>Role</th>
+            <th>Họ và tên</th>
+            <th>Địa chỉ</th>
+            <th>Vai trò</th>
             <th> </th>
         </tr>
 

@@ -49,7 +49,7 @@ function onDeleteAccount(id){
     })
         .then(function (response) {
             if(response.ok){
-                alert("Delete Success!");
+                alert("Xóa thành công!");
             }
             getAccount(renderAccount);
         });
@@ -74,7 +74,7 @@ document.getElementById("form_add_account").addEventListener("submit",function (
     };
     console.log(data);
     if (password.value === ''){
-        alert("Password can not be blank");
+        alert("Mật khẩu không được để trống!");
     }else {
         const url = "http://localhost:8080/api/account/save";
         fetch(url, {
@@ -85,13 +85,11 @@ document.getElementById("form_add_account").addEventListener("submit",function (
             }
         })
             .then(function (response) {
-                if (response.ok) {
-                    alert("Add success!");
-                    getAccount(renderAccount);
-                }
+                return response.json();
             })
-            .catch(function (e) {
-                alert("error: " + e);
+            .then(function (doiTuongTraVe){
+                alert(doiTuongTraVe.thongBao);
+                getAccount(renderAccount);
             })
     }
 })

@@ -11,10 +11,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
-
 @Component
-public class DataSeeder implements ApplicationListener<ContextRefreshedEvent> {
+public class DuLieuMacDinh implements ApplicationListener<ContextRefreshedEvent> {
    @Autowired
    private UserRepository userRepository;
 
