@@ -46,18 +46,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .and().formLogin()
-                .loginPage("/login")
+                .loginPage("/dang-nhap")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .successHandler(authenticationSuccessHandler)
-                .failureUrl("/login?error")
+                .failureUrl("/dang-nhap?loi")
                 .and()
                 .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
+                .logoutUrl("/dang-xuat")
+                .logoutSuccessUrl("/dang-nhap?dangxuat")
                 .and()
-                .rememberMe().key("uniqueAndSecret").rememberMeParameter("rememberMe")
+                .rememberMe().key("uniqueAndSecret").rememberMeParameter("nhomatkhau")
                 .and()
-                .exceptionHandling().accessDeniedPage("/login?accessDenied");
+                .exceptionHandling().accessDeniedPage("/dang-nhap?khongthetruycap");
     }
 }

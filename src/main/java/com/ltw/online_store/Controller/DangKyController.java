@@ -4,7 +4,7 @@ import javax.validation.Valid;
 import com.ltw.online_store.Entity.User;
 import com.ltw.online_store.Service.SecurityService;
 import com.ltw.online_store.Service.UserService;
-import com.ltw.online_store.validator.UserValidator;
+import com.ltw.online_store.validator.XacThucNguoiDung;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,21 +23,21 @@ public class DangKyController {
     private SecurityService securityService;
 
     @Autowired
-    private UserValidator userValidator;
+    private XacThucNguoiDung xacThucNguoiDung;
 
-    @GetMapping("/register")
+    @GetMapping("/dang-ky")
     public String registerPage(Model model){
         model.addAttribute("newUser",new User());
-        return "register";
+        return "dangky";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/dang-ky")
     public String registerProcess(@ModelAttribute("newUser") @Valid User user, BindingResult bindingResult, Model model) {
 
-         userValidator.validate(user, bindingResult);
+         xacThucNguoiDung.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "dangky";
         }
         System.out.println(user);
         userService.saveUser(user);

@@ -23,9 +23,9 @@
     <div class="main-agileinfo">
         <div class="agileits-top">
             <%--@elvariable id="newUser" type="com.ltw.online_store.Entity.User"--%>
-            <form:form method="post" action="register" modelAttribute="newUser">
+            <form:form method="post" action="dang-ky" modelAttribute="newUser">
                 <form:errors class="error" path="userName"></form:errors>
-                <form:input type="text" path="userName" class="text" placeholder="Username" required="required"></form:input>
+                <form:input type="text" path="userName" class="text" placeholder="Tên Đăng nhập" required="required"></form:input>
 
 <%--                <input class="text" type="text" name="Username" placeholder="Username" required="required">--%>
                 <form:errors class="error" path="email"></form:errors>
@@ -33,11 +33,11 @@
 
 <%--                <input class="text email" type="email" name="email" placeholder="Email" required="required">--%>
                 <form:errors class="error" path="password"></form:errors>
-                <form:input type="password" path="password" class="text" placeholder="Password" required="required"></form:input>
+                <form:input type="password" path="password" class="text" placeholder="Mật khẩu" required="required"></form:input>
 
 <%--                <input class="text" type="password" name="password" placeholder="Password" required="required">--%>
                 <form:errors class="error" path="confirmPassword"></form:errors>
-                <form:input type="password" path="confirmPassword" class="text w3lpass" placeholder="Confirm Password" required="required"></form:input>
+                <form:input type="password" path="confirmPassword" class="text w3lpass" placeholder="Nhập lại mật khẩu" required="required"></form:input>
 
 <%--                <input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirm Password" required="required">--%>
                 <div class="wthree-text">
@@ -47,9 +47,9 @@
                     </label>
                     <div class="clear"> </div>
                 </div>
-                <input type="submit" value="SIGNUP">
+                <input type="submit" value="Đăng ký">
             </form:form>
-            <p>have an Account? <a href="/login"> Login Now!</a></p>
+            <p>have an Account? <a href="/dang-nhap"> Đăng nhập!</a></p>
         </div>
     </div>
 </div>

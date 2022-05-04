@@ -22,38 +22,38 @@
 <body>
 <!-- main -->
 <div class="main-w3layouts wrapper">
-    <h1>SIGN IN</h1>
+    <h1>Đăng nhập</h1>
 
     <div class="main-agileinfo">
-        <c:if test="${param.error != null}">
+        <c:if test="${param.loi != null}">
             <div class="alert alert-danger" role="alert">
-                User or password not exist!
+                Tên đăng nhập hoặc mật khẩu không đúng!
             </div>
         </c:if>
-        <c:if test="${param.logout != null}">
+        <c:if test="${param.dangxuat != null}">
             <div class="alert alert-success" role="alert">
-                Logout success!
+                Đăng xuất thành công!
             </div>
         </c:if>
-        <c:if test="${param.accessDenied != null}">
+        <c:if test="${param.khongthetruycap != null}">
             <div class="alert alert-warning" role="alert">
-                You can not access this page!
+                Không thể truy cập trang này!
             </div>
         </c:if>
         <div class="agileits-top">
             <form action="${pageContext.request.contextPath}" method="post">
-                <input class="text" type="text" name="username" placeholder="Username" required="required"/>
-                <input class="text email" type="password" name="password" placeholder="password" required="required">
+                <input class="text" type="text" name="username" placeholder="Tên đăng nhập" required="required"/>
+                <input class="text email" type="password" name="password" placeholder="mật khẩu" required="required">
                 <div class="wthree-text">
                     <label class="anim">
-                        <input type="checkbox" class="checkbox" name = "rememberMe">
-                        <span>I Agree To The Terms & Conditions</span>
+                        <input type="checkbox" class="checkbox" name = "nhomatkhau">
+                        <span>Nhớ mật khẩu</span>
                     </label>
                     <div class="clear"> </div>
                 </div>
-                <input type="submit" value="LOGIN">
+                <input type="submit" value="Đăng nhập">
             </form>
-            <p>Don't have an Account? <a href="/register"> Register Now!</a></p>
+            <p>Đã có tài khoản? <a href="/dang-ky"> Đăng ký!</a></p>
         </div>
     </div>
 </div>

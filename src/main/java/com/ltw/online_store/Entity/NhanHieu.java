@@ -1,10 +1,7 @@
 package com.ltw.online_store.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,16 +11,21 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Category {
+public class NhanHieu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String name;
+    @NonNull
+    @Column(unique = true)
+    private String ten;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
+    @OneToMany(mappedBy = "nhanHieu")
+    private List<SanPham> sanPhams;
 
+    public NhanHieu(String ten) {
+        this.ten = ten;
+    }
 }

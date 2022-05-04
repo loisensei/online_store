@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Product {
+public class SanPham {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -22,22 +22,22 @@ public class Product {
 
     @Transient
     @JsonIgnore
-    private MultipartFile picture;
+    private MultipartFile anh;
 
-    private String name;
-    private long price;
+    private String ten;
+    private long gia;
 
-    private String gender;
+    private String gioiTinh;
 
-    private String color;
+    private String mauSac;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private Category category;
+    private DanhMuc danhMuc;
 
     @ManyToOne
     @JoinColumn(name = "brand_id")
-    private Brand brand;
+    private NhanHieu nhanHieu;
 
-    private String detail;
+    private String moTa;
 }

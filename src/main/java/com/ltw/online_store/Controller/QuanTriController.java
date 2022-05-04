@@ -27,31 +27,36 @@ public class QuanTriController {
         return userService.findByUserName(au.getName());
     }
 
-    @GetMapping("/admin_home")
+    @GetMapping("/trang-quan-tri")
     public String homePage(){
-        return "admin/home";
+        return "admin/trangquantri";
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/thong-tin-tai-khoan")
     public String profilePage(){
-        return "admin/profile";
+        return "admin/thongtin";
     }
 
-    @GetMapping("/brand")
+    @GetMapping("/nhan-hieu")
      public String brandPage() {
-        return "admin/brand";
+        return "admin/nhanhieu";
     }
 
-    @GetMapping("/account-management")
+    @GetMapping("/danh-muc")
+    public String trangDanhMuc(){
+        return "admin/danhmuc";
+    }
+
+    @GetMapping("/quan-ly-tai-khoan")
     public String accountManagementPage(Model model){
         model.addAttribute("users",userService.getAll());
         model.addAttribute("roles",roleService.getAll());
-        return "admin/accountManagement";
+        return "admin/taikhoan";
     }
 
     @GetMapping("/delete")
     public String deleteAccount(@RequestParam Long id){
         userService.deleteById(id);
-        return "redirect:/admin/account-management";
+        return "redirect:/admin/quan-ly-tai-khoan";
     }
 }

@@ -12,13 +12,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Cart {
+public class GioHang {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private long totalPrice;
+    private long tongGia;
 
     @OneToOne
     @JoinColumn(name = "user_id")

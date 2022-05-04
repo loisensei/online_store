@@ -19,14 +19,14 @@ public class OrderDetails {
 
     @OneToOne
     @JoinColumn(name = "product_id")
-    private Product product;
+    private SanPham sanPham;
 
     private long unitPrice;
     private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private Orders orders;
+    private DonHang donHang;
 
 
 }

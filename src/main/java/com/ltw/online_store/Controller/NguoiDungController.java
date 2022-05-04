@@ -1,6 +1,10 @@
 package com.ltw.online_store.Controller;
 
+import com.ltw.online_store.Entity.NhanHieu;
+import com.ltw.online_store.Entity.DanhMuc;
 import com.ltw.online_store.Entity.User;
+import com.ltw.online_store.Service.NhanHieuService;
+import com.ltw.online_store.Service.DanhMucService;
 import com.ltw.online_store.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 @SessionAttributes("loggerInUser")
@@ -22,41 +27,57 @@ public class NguoiDungController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private NhanHieuService nhanHieuService;
+
+    @Autowired
+    private DanhMucService danhMucService;
+
     @ModelAttribute("loggerInUser")
     public User loggerInUser() {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
         return userService.findByUserName(au.getName());
     }
 
-    @GetMapping("/login")
-    public String loginPage(){
-        return "login";
+    @ModelAttribute("cacNhanHieu")
+    public List<NhanHieu> cacNhanHieu(){
+        return nhanHieuService.getAll();
     }
 
-    @GetMapping("/user_home")
-    public String homePage(){
-        return "web/home";
+    @ModelAttribute("cacDanhMuc")
+    public List<DanhMuc> cacDanhMuc(){
+        return danhMucService.tatCaDanhMuc();
     }
 
-    @GetMapping("/contact")
-    public String contactPage(){
-        return "web/contact";
+    @GetMapping("/dang-nhap")
+    public String trangDangNhap(){
+        return "dangnhap";
     }
 
-    @GetMapping("/profile")
-    public String profilePage(){
-        return "web/profile";
+    @GetMapping("/trang-chu")
+    public String trangChu(){
+        return "web/trangchu";
     }
 
-    @GetMapping("/logout")
-    public String logoutPage(HttpServletRequest request, HttpServletResponse response, Model model){
+    @GetMapping("/lien-he")
+    public String trangLienHe(){
+        return "web/lienhe";
+    }
+
+    @GetMapping("/thong-tin-tai-khoan")
+    public String trangThongTinNguoiDung(){
+        return "web/thongtin";
+    }
+
+    @GetMapping("/dang-xuat")
+    public String trangDangXuat(HttpServletRequest request, HttpServletResponse response, Model model){
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
         String userName = au.getName();
         System.out.println(userName);
         if(au != null){
             new SecurityContextLogoutHandler().logout(request, response,au);
         }
-        return "redirect:/login?logout";
+        return "redirect:/dang-nhap?dang-xuat";
     }
 
 }

@@ -89,4 +89,4 @@
 
 </div>
 
-<script src="/js/web/profile.js"></script>
+<script src="/js/web/thongtin.js"></script>

@@ -7,15 +7,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
+    <title>Document</title>
 </head>
 <body>
-<jsp:include page="include/header.jsp"></jsp:include>
-
-<jsp:include page="include/profileContent.jsp"></jsp:include>
-
-<jsp:include page="include/footer.jsp"></jsp:include>
-
+<%@include file="include/header.jsp"%>
+<%@include file="include/sidebar.jsp"%>
+<%@include file="include/thongtinContent.jsp"%>
+<%@include file="include/footer.jsp"%>
 
 </body>
 </html>

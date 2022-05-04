@@ -66,9 +66,9 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/user_home">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Category</a></li>
-                    <li class="breadcrumb-item active" aria-current="#">Sub-category</li>
+                    <li class="breadcrumb-item"><a href="/trang-chu">Trang Chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Nhãn hiệu</a></li>
+                    <li class="breadcrumb-item active" aria-current="#">Sub-Brand</li>
                 </ol>
             </nav>
         </div>
@@ -78,18 +78,16 @@
     <div class="row">
         <div class="col-sm-3">
             <div class="card bg-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
+                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i>Thương hiệu</div>
                 <ul class="list-group category_block">
-<%--                    <c:forEach items="${listCC}" var="o">--%>
-                    <li class="list-group-item text-white"><a href="#">Adidas</a></li>
-                    <li class="list-group-item text-white"><a href="#">Sneaker</a></li>
-                    <li class="list-group-item text-white"><a href="#">Nike</a></li>
-<%--                    </c:forEach>--%>
+                    <c:forEach items="${cacNhanHieu}" var="nhanHieu">
+                    <li class="list-group-item text-white"><a href="#">${nhanHieu.ten}</a></li>
+                    </c:forEach>
 
                 </ul>
             </div>
             <div class="card bg-light mb-3">
-                <div class="card-header text-white text-uppercase">Last product</div>
+                <div class="card-header text-white text-uppercase">Sản phẩm mới nhất</div>
                 <div class="card-body">
                     <img class="img-fluid" src="/img/pic1.jpg" />
                     <h5 class="card-title">Jordan</h5>

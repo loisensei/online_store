@@ -47,7 +47,7 @@ public class User {
     @JsonIgnore
     @Transient
     @OneToMany(mappedBy = "user")
-    private List<Orders> orders;
+    private List<DonHang> orders;
 
     public User(String name, String email, String password) {
         this.userName = name;

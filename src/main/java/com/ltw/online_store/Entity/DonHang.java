@@ -16,12 +16,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Orders {
+public class DonHang {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "donHang")
     private List<OrderDetails> Details;
 
     private String address;

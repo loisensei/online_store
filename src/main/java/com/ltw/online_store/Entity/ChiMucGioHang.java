@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CartIndex {
+public class ChiMucGioHang {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -20,12 +20,12 @@ public class CartIndex {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Product product;
+    private SanPham sanPham;
 
-    private int quantity;
+    private int soLuong;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
-    private Cart cart;
+    private GioHang gioHang;
 
 }

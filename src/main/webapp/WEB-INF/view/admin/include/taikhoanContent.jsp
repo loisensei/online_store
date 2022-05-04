@@ -10,10 +10,10 @@
     <form id="form_add_account" method="post">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                <input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" name="username">
             </div>
             <div class="form-group col-md-5">
-                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password">
             </div>
             <div class="form-group col-md-2">
             <label for="role">Vai Trò:</label>
@@ -27,13 +27,11 @@
             <input type="email" class="form-control" id="email" placeholder="Email" name="email">
         </div>
         <div class="form-group col-md-9">
-            <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+            <input type="text" class="form-control" id="address" placeholder="Địa chỉ" name="address">
         </div>
-<%--        <div class="form-row">--%>
 
-<%--        </div>--%>
         <div class="form-group col-md-1">
-            <button type="submit" class="btn btn-primary">Add Account</button>
+            <button type="submit" class="btn btn-primary">Thêm tài khoản</button>
         </div>
 
     </form>
@@ -60,7 +58,7 @@
 </div>
 
 <%--</div>--%>
-<script src="/js/admin/account.js"></script>
+<script src="/js/admin/taikhoan.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
 
 

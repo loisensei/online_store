@@ -10,12 +10,12 @@
     <!------ Include the above in your HEAD tag ---------->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <title>Home Page</title>
+    <title>Trang chủ</title>
 </head>
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
 
-<jsp:include page="include/cartContent.jsp"></jsp:include>
+<jsp:include page="include/giohangContent.jsp"></jsp:include>
 
 <jsp:include page="include/footer.jsp"></jsp:include>
 

@@ -7,7 +7,7 @@
 <div class="col-md-9 bounce">
     <h3 class="page-header">Quản lý Nhãn hiệu</h3>
 
-    <form id="form_them_tai_khoan" method="post">
+    <form id="form_them_nhan_hieu" method="post">
         <div class="form-row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" id="nhanHieu" placeholder="Nhãn hiệu" name="nhanHieu">
@@ -37,4 +37,4 @@
     </ul>
 </div>
 
-<script src="/js/admin/brand.js"></script>
+<script src="/js/admin/nhanhieu.js"></script>

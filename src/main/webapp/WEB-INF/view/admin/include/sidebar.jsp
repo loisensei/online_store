@@ -16,40 +16,40 @@
 
                 <li class="side-bar tmargin">
                     <a href="<c:url value='/admin/don-hang' />">
-                        <span class="glyphicon glyphicon-shopping-cart">&nbsp;</span>Order</a>
+                        <span class="glyphicon glyphicon-shopping-cart">&nbsp;</span>Đơn hàng</a>
                 </li>
 
                 <li class="side-bar">
                     <a href='<c:url value="/admin/san-pham"/>' >
-                        <span class="glyphicon glyphicon-folder-open">&nbsp;</span>Product</a>
+                        <span class="glyphicon glyphicon-folder-open">&nbsp;</span>Sản phẩm</a>
                 </li>
 
                 <li class="side-bar">
                     <a href='<c:url value="/admin/danh-muc"/>'>
-                        <span class="glyphicon glyphicon-tasks">&nbsp;</span>Category</a>
+                        <span class="glyphicon glyphicon-tasks">&nbsp;</span>Danh mục</a>
                 </li>
 
                 <li class="side-bar">
-                    <a href='<c:url value="/admin/brand"/>' >
-                        <span class="glyphicon glyphicon-flag">&nbsp;</span>Brand</a>
+                    <a href='<c:url value="/admin/nhan-hieu"/>' >
+                        <span class="glyphicon glyphicon-flag">&nbsp;</span>Nhãn hiệu</a>
                 </li>
 
                 <li class="side-bar main-menu">
-                    <a href="<c:url value='/admin/account-management' />">
-                        <span class="glyphicon glyphicon-th-list">&nbsp;</span>Account</a>
+                    <a href="<c:url value='/admin/quan-ly-tai-khoan' />">
+                        <span class="glyphicon glyphicon-th-list">&nbsp;</span>Tài khoản</a>
                 </li>
 
                 <li class="side-bar main-menu">
                     <a href="<c:url value='/admin/lien-he' />">
-                        <span class="glyphicon glyphicon-envelope">&nbsp;</span>Contact</a>
+                        <span class="glyphicon glyphicon-envelope">&nbsp;</span>Liên hệ</a>
                 </li>
                 <li class="side-bar">
-                    <a href="<c:url value='/admin/profile' />">
-                        <span class="glyphicon glyphicon-user">&nbsp;</span>Account Information</a>
+                    <a href="<c:url value='/admin/thong-tin-tai-khoan' />">
+                        <span class="glyphicon glyphicon-user">&nbsp;</span>Thông tin tài khoản</a>
                 </li>
 
             </ul>
         </div>
     </div>
 
-    <script src="<c:url value='/js/admin.js'/>" ></script>
+    <script src="<c:url value='/js/quantri.js'/>" ></script>

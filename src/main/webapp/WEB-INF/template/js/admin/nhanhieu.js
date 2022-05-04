@@ -2,12 +2,12 @@
 const url = "http://localhost:8080/api/brand/get/all";
 
 function start() {
-    getBrands(render);
+    layNhanHieu(xuatHTML);
 }
 
 start();
 
-function getBrands(goilai) {
+function layNhanHieu(goilai) {
     fetch(url)
         .then(function (response){
             return response.json();
@@ -15,14 +15,14 @@ function getBrands(goilai) {
         .then(goilai)
 }
 
-function render(cacNhanHieu) {
+function xuatHTML(cacNhanHieu) {
     console.log(cacNhanHieu);
     const tbody = document.querySelector("tbody");
     const htmls = cacNhanHieu.map(function (nhanHieu) {
         return `
                 <tr>
                     <td>${nhanHieu.id}</td>
-                    <td>${nhanHieu.name}</td>
+                    <td>${nhanHieu.ten}</td>
                     <td><a data-toggle="modal" onclick="onDeleteBrand(${nhanHieu.id})"><i class="fa-solid fa-trash-can" style="color: #620e0e"></i></a></td>
                     
                 </tr>
@@ -40,15 +40,15 @@ function onDeleteBrand(id) {
             if(response.ok){
                 alert("Xóa thành công!")
             }
-            getBrands(render);
+            layNhanHieu(xuatHTML);
         })
 }
 
-document.getElementById("form_them_tai_khoan").addEventListener("submit",function (e) {
+document.getElementById("form_them_nhan_hieu").addEventListener("submit",function (e) {
     e.preventDefault();
     const ten = document.getElementById("nhanHieu");
     const nhanHieuJson = {
-        "name": ten.value
+        "ten": ten.value
     };
     if(ten.value === ""){
         alert("Tên nhãn hiệu không được để trống!");
@@ -66,7 +66,7 @@ document.getElementById("form_them_tai_khoan").addEventListener("submit",functio
             })
             .then(function (doiTuongTraVe){
                 alert(doiTuongTraVe.thongBao);
-                getBrands(render);
+                layNhanHieu(xuatHTML);
             })
     }
 })

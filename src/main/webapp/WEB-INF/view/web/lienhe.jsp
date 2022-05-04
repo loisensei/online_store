@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
 
-<jsp:include page="include/contactContent.jsp"></jsp:include>
+<jsp:include page="include/lienheContent.jsp"></jsp:include>
 
 <jsp:include page="include/footer.jsp"></jsp:include>
 
