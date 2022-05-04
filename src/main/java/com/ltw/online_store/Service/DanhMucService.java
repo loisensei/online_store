@@ -9,4 +9,6 @@ public interface DanhMucService {
     void xoaBoiID(Long id);
     boolean danhMucTonTai(DanhMuc danhMuc);
     void luuDanhMuc(DanhMuc danhMuc);
+    DanhMuc timTheoTen(String ten);
+    DanhMuc timTheoId(Long id);
 }

@@ -33,4 +33,14 @@ public class DanhMucServiceImpl implements DanhMucService {
     public void luuDanhMuc(DanhMuc danhMuc) {
         danhMucRepository.save(danhMuc);
     }
+
+    @Override
+    public DanhMuc timTheoTen(String ten) {
+        return danhMucRepository.findByTen(ten);
+    }
+
+    @Override
+    public DanhMuc timTheoId(Long id) {
+        return danhMucRepository.getById(id);
+    }
 }

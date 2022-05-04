@@ -1,6 +1,10 @@
 package com.ltw.online_store.Controller;
 
+import com.ltw.online_store.Entity.DanhMuc;
 import com.ltw.online_store.Entity.NguoiDung;
+import com.ltw.online_store.Entity.NhanHieu;
+import com.ltw.online_store.Service.DanhMucService;
+import com.ltw.online_store.Service.NhanHieuService;
 import com.ltw.online_store.Service.VaiTroService;
 import com.ltw.online_store.Service.NguoiDungService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @SessionAttributes("loggerInUser")
@@ -21,6 +27,20 @@ public class QuanTriController {
     @Autowired
     private VaiTroService vaiTroService;
 
+    @Autowired
+    private DanhMucService danhMucService;
+
+    @Autowired
+    private NhanHieuService nhanHieuService;
+
+    @ModelAttribute("cacDanhMuc")
+    public List<DanhMuc> layTatCaDanhMuc(){
+        return danhMucService.tatCaDanhMuc();
+    }
+    @ModelAttribute("cacNhanHieu")
+    public List<NhanHieu> layTatCaNhanHieu(){
+        return nhanHieuService.getAll();
+    }
     @ModelAttribute("loggerInUser")
     public NguoiDung loggerInUser() {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
@@ -45,6 +65,11 @@ public class QuanTriController {
     @GetMapping("/danh-muc")
     public String trangDanhMuc(){
         return "admin/danhmuc";
+    }
+
+    @GetMapping("/san-pham")
+    public String quanLySanPham(){
+        return "admin/sanpham";
     }
 
     @GetMapping("/quan-ly-tai-khoan")

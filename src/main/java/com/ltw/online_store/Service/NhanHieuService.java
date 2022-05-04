@@ -11,4 +11,6 @@ public interface NhanHieuService {
     List<NhanHieu> getAll();
     boolean nhanHieuTonTai(NhanHieu nhanHieu);
     void deleteById(Long id);
+    NhanHieu timTheoTen(String ten);
+    NhanHieu timTheoId(Long id);
 }

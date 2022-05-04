@@ -42,5 +42,15 @@ public class NhanHieuServiceImpl implements NhanHieuService {
         nhanHieuRepository.deleteById(id);
     }
 
+    @Override
+    public NhanHieu timTheoTen(String ten) {
+        return nhanHieuRepository.findByTen(ten);
+    }
+
+    @Override
+    public NhanHieu timTheoId(Long id) {
+        return nhanHieuRepository.findById(id).get();
+    }
+
 
 }

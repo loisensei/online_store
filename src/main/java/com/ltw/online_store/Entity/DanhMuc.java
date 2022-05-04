@@ -20,6 +20,7 @@ public class DanhMuc {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(unique = true)
     private String ten;
 
     @JsonIgnore

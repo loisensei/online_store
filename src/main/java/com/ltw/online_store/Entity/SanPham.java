@@ -24,6 +24,8 @@ public class SanPham {
     @JsonIgnore
     private MultipartFile anh;
 
+    private String pathAnh;
+
     private String ten;
     private long gia;
 
@@ -31,6 +33,7 @@ public class SanPham {
 
     private String mauSac;
 
+    private int soLuong;
     @ManyToOne
     @JoinColumn(name = "id_danh_muc")
     private DanhMuc danhMuc;
