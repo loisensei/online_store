@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-            <h2 class="h3 mb-4 page-title">Settings</h2>
+            <h2 class="h3 mb-4 page-title">Cài đặt</h2>
             <div class="my-4">
                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Profile</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Thông tin người dùng</a>
                     </li>
                 </ul>
                 <form id="profile-form" method="post">
@@ -43,12 +43,12 @@
                     <hr class="my-4" />
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" class="form-control" value="${loggerInUser.userName}" readonly/>
+                            <label for="tenDangNhap">Tên đăng nhập</label>
+                            <input type="text" id="tenDangNhap" class="form-control" value="${loggerInUser.tenDangNhap}" readonly/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" value="${loggerInUser.fullName}" />
+                            <label for="hoTen">Họ và tên</label>
+                            <input type="text" id="hoTen" class="form-control" value="${loggerInUser.hoTen}" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,32 +56,32 @@
                         <input type="email" class="form-control" id="email" value="${loggerInUser.email}" />
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" value="${loggerInUser.address}" />
+                        <label for="diaChi">Địa chỉ</label>
+                        <input type="text" class="form-control" id="diaChi" value="${loggerInUser.diaChi}" />
                     </div>
                     <hr class="my-4" />
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="newPassword">New Password</label>
-                                <input type="password" class="form-control" id="newPassword" />
+                                <label for="matKhauMoi">Mật khẩu mới</label>
+                                <input type="password" class="form-control" id="matKhauMoi" />
                             </div>
                             <div class="form-group">
-                                <label for="confirmPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" />
-                                <label for="confirmPassword" id="warn-cf-pass" style="color: #A11515FF"></label>
+                                <label for="matKhauXacNhan">Nhập lại mật khẩu</label>
+                                <input type="password" class="form-control" id="matKhauXacNhan" />
+                                <label for="matKhauXacNhan" id="warn-cf-pass" style="color: #A11515FF"></label>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <p class="mb-2">Password requirements</p>
+                            <p class="mb-2">Yêu cầu mật khẩu</p>
                             <p class="small text-muted mb-2">To create a new password, you have to meet all of the following requirements:</p>
                             <ul class="small text-muted pl-4 mb-0">
-                                <li>Minimum 3 character</li>
-                                <li>Can’t be the same as a previous password</li>
+                                <li>Ít nhất 3 ký tự</li>
+                                <li>Không được giống với mật khẩu cũ</li>
                             </ul>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save Change</button>
+                    <button type="submit" class="btn btn-primary">lưu thay đổi</button>
                 </form>
             </div>
         </div>

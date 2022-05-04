@@ -71,7 +71,7 @@
                                 </c:if>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<%=request.getContextPath()%>/thong-tin-tai-khoan">Xin chào : ${loggerInUser.userName}</a>
+                                        <a class="nav-link" href="<%=request.getContextPath()%>/thong-tin-tai-khoan">Xin chào : ${loggerInUser.tenDangNhap}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="<%=request.getContextPath()%>/dang-xuat">Đăng xuất</a>

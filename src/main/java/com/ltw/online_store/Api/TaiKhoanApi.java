@@ -1,9 +1,9 @@
 package com.ltw.online_store.Api;
 
-import com.ltw.online_store.Dto.UserDto;
+import com.ltw.online_store.Dto.NguoiDungDto;
 import com.ltw.online_store.Entity.DoiTuongTraVe;
-import com.ltw.online_store.Service.RoleService;
-import com.ltw.online_store.Service.UserService;
+import com.ltw.online_store.Service.VaiTroService;
+import com.ltw.online_store.Service.NguoiDungService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -14,36 +14,36 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/account")
 public class TaiKhoanApi {
     @Autowired
-    private UserService userService;
+    private NguoiDungService nguoiDungService;
 
     @Autowired
-    private RoleService roleService;
+    private VaiTroService vaiTroService;
 
     @DeleteMapping("/delete/{id}")
     public void deleteAccountById(@PathVariable Long id, Model model){
-        userService.deleteById(id);
+        nguoiDungService.deleteById(id);
     }
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getAccountById(@PathVariable Long id, Model model){
-        return ResponseEntity.ok(userService.getById(id));
+        return ResponseEntity.ok(nguoiDungService.getById(id));
     }
 
     @PostMapping("/update")
-    public void updateAccount(@RequestBody UserDto user, Model model){
+    public void updateAccount(@RequestBody NguoiDungDto user, Model model){
         model.addAttribute("loggerInUser",user);
-        userService.updateUser(user);
+        nguoiDungService.updateUser(user);
     }
 
     @GetMapping("/get/all")
     public ResponseEntity<?> getAllAccounts(){
-        return ResponseEntity.ok(userService.getAll());
+        return ResponseEntity.ok(nguoiDungService.getAll());
     }
 
     @PostMapping("/save")
-    public DoiTuongTraVe saveAccount(@RequestBody UserDto user, Model model){
+    public DoiTuongTraVe saveAccount(@RequestBody NguoiDungDto nguoiDungDto, Model model){
         DoiTuongTraVe doiTuongTraVe = new DoiTuongTraVe();
-        if(userService.nguoiDungTonTai(user.getUserName())) {
+        if(nguoiDungService.nguoiDungTonTai(nguoiDungDto.getTenDangNhap())) {
             doiTuongTraVe.setThongBao("Tên người dùng đã tồn tại!");
             doiTuongTraVe.setTrangThai("loi");
             return doiTuongTraVe;
@@ -51,7 +51,7 @@ public class TaiKhoanApi {
         else {
             doiTuongTraVe.setThongBao("Thêm tài khoản thành công");
             doiTuongTraVe.setTrangThai("thanhcong");
-            userService.saveUser(user);
+            nguoiDungService.saveUser(nguoiDungDto);
         }
         return doiTuongTraVe;
     }

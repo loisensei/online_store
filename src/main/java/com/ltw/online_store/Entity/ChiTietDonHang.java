@@ -12,20 +12,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class OrderDetails {
+public class ChiTietDonHang {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "id_san_pham")
     private SanPham sanPham;
 
-    private long unitPrice;
-    private int quantity;
+    private long donGia;
+    private int soLuong;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "id_don_hang")
     private DonHang donHang;
 
 

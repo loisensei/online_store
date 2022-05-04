@@ -32,11 +32,11 @@ public class SanPham {
     private String mauSac;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "id_danh_muc")
     private DanhMuc danhMuc;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn(name = "id_nhan_hieu")
     private NhanHieu nhanHieu;
 
     private String moTa;

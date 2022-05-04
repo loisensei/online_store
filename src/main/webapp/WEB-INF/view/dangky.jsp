@@ -22,22 +22,22 @@
     <h1>SIGN UP</h1>
     <div class="main-agileinfo">
         <div class="agileits-top">
-            <%--@elvariable id="newUser" type="com.ltw.online_store.Entity.User"--%>
+            <%--@elvariable id="newUser" type="com.ltw.online_store.Entity.NguoiDung"--%>
             <form:form method="post" action="dang-ky" modelAttribute="newUser">
-                <form:errors class="error" path="userName"></form:errors>
-                <form:input type="text" path="userName" class="text" placeholder="Tên Đăng nhập" required="required"></form:input>
+                <form:errors class="error" path="tenDangNhap"></form:errors>
+                <form:input type="text" path="tenDangNhap" class="text" placeholder="Tên Đăng nhập" required="required"></form:input>
 
 <%--                <input class="text" type="text" name="Username" placeholder="Username" required="required">--%>
                 <form:errors class="error" path="email"></form:errors>
                 <form:input type="text" path="email" class="email" placeholder="Email" required="required"></form:input>
 
 <%--                <input class="text email" type="email" name="email" placeholder="Email" required="required">--%>
-                <form:errors class="error" path="password"></form:errors>
-                <form:input type="password" path="password" class="text" placeholder="Mật khẩu" required="required"></form:input>
+                <form:errors class="error" path="matKhau"></form:errors>
+                <form:input type="password" path="matKhau" class="text" placeholder="Mật khẩu" required="required"></form:input>
 
 <%--                <input class="text" type="password" name="password" placeholder="Password" required="required">--%>
-                <form:errors class="error" path="confirmPassword"></form:errors>
-                <form:input type="password" path="confirmPassword" class="text w3lpass" placeholder="Nhập lại mật khẩu" required="required"></form:input>
+                <form:errors class="error" path="matKhauXacThuc"></form:errors>
+                <form:input type="password" path="matKhauXacThuc" class="text w3lpass" placeholder="Nhập lại mật khẩu" required="required"></form:input>
 
 <%--                <input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirm Password" required="required">--%>
                 <div class="wthree-text">
@@ -49,7 +49,7 @@
                 </div>
                 <input type="submit" value="Đăng ký">
             </form:form>
-            <p>have an Account? <a href="/dang-nhap"> Đăng nhập!</a></p>
+            <p>Đã có tài khoản? <a href="/dang-nhap"> Đăng nhập!</a></p>
         </div>
     </div>
 </div>

@@ -7,17 +7,17 @@
 
 <div class="col-md-9 bounce">
     <h3 class="page-header">Quản lý Tài khoản</h3>
-    <form id="form_add_account" method="post">
+    <form id="form_them_tai_khoan" method="post">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" name="username">
+                <input type="text" class="form-control" id="tenDangNhap" placeholder="Tên đăng nhập" name="tenDangNhap">
             </div>
             <div class="form-group col-md-5">
-                <input type="password" class="form-control" id="password" placeholder="Mật khẩu" name="password">
+                <input type="password" class="form-control" id="matKhau" placeholder="Mật khẩu" name="matKhau">
             </div>
             <div class="form-group col-md-2">
-            <label for="role">Vai Trò:</label>
-            <select id="role" class="form-control" name="role">
+            <label for="vaiTro">Vai Trò:</label>
+            <select id="vaiTro" class="form-control" name="vaiTro">
                 <option selected>USER</option>
                 <option>ADMIN</option>
             </select>
@@ -27,7 +27,7 @@
             <input type="email" class="form-control" id="email" placeholder="Email" name="email">
         </div>
         <div class="form-group col-md-9">
-            <input type="text" class="form-control" id="address" placeholder="Địa chỉ" name="address">
+            <input type="text" class="form-control" id="diaChi" placeholder="Địa chỉ" name="diaChi">
         </div>
 
         <div class="form-group col-md-1">

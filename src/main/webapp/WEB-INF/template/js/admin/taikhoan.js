@@ -2,39 +2,39 @@
 const url = "http://localhost:8080/api/account/get/all";
 
 function load() {
-    getAccount(renderAccount);
+    layTaiKhoan(xuatHTML);
 }
 
 load();
 
-function getAccount(callback) {
+function layTaiKhoan(goiLai) {
     fetch(url)
         .then(function (response) {
             return response.json()
         })
-        .then(callback);
+        .then(goiLai);
 }
 
-function renderAccount(accounts) {
-    console.log(accounts);
+function xuatHTML(taiKhoans) {
+    console.log(taiKhoans);
     const tbody = document.querySelector('tbody');
-    const htmls = accounts.map(function (account) {
-        console.log(account.role);
-        const role = account.role.map(function (rl){
+    const htmls = taiKhoans.map(function (taiKhoan) {
+        console.log(taiKhoan.vaiTro);
+        const role = taiKhoan.vaiTro.map(function (rl){
             console.log(rl);
             return `
-                <p>${rl.roleName}</p>
+                <p>${rl.ten}</p>
             `;
         })
         return `
                  <tr>
-                    <td>${account.id}</td>
-                    <td>${account.userName}</td>
-                    <td>${account.email}</td>
-                    <td>${account.fullName}</td>
-                    <td>${account.address}</td>
+                    <td>${taiKhoan.id}</td>
+                    <td>${taiKhoan.tenDangNhap}</td>
+                    <td>${taiKhoan.email}</td>
+                    <td>${taiKhoan.hoTen}</td>
+                    <td>${taiKhoan.diaChi}</td>
                     <td>${role}</td>
-                    <td><a data-toggle="modal" onclick="onDeleteAccount(${account.id})"><i class="fa-solid fa-trash-can" style="color: #620e0e"></i></a></td>
+                    <td><a data-toggle="modal" onclick="onDeleteAccount(${taiKhoan.id})"><i class="fa-solid fa-trash-can" style="color: #620e0e"></i></a></td>
                     
                 </tr>
         `;
@@ -43,37 +43,37 @@ function renderAccount(accounts) {
 }
 
 function onDeleteAccount(id){
-    const deleteApi = "http://localhost:8080/api/account/delete/" + id;
-    fetch(deleteApi,{
+    const xoaTaiKhoanApi = "http://localhost:8080/api/account/delete/" + id;
+    fetch(xoaTaiKhoanApi,{
         method:"DELETE"
     })
         .then(function (response) {
             if(response.ok){
                 alert("Xóa thành công!");
             }
-            getAccount(renderAccount);
+            layTaiKhoan(xuatHTML);
         });
 
 }
 
 // ------------------ add account ------------------------------------
-document.getElementById("form_add_account").addEventListener("submit",function (e){
+document.getElementById("form_them_tai_khoan").addEventListener("submit",function (e){
     e.preventDefault();
-    const username = document.getElementById("username");
-    const password = document.getElementById("password");
+    const tenDangNhap = document.getElementById("tenDangNhap");
+    const matKhau = document.getElementById("matKhau");
     const email = document.getElementById("email");
-    const address = document.getElementById("address");
-    const roleName = document.getElementById("role");
+    const diaChi = document.getElementById("diaChi");
+    const tenVaiTro = document.getElementById("vaiTro");
 
     const data = {
-        'userName': username.value,
+        'tenDangNhap': tenDangNhap.value,
         'email': email.value,
-        'address': address.value,
-        'password': password.value,
-        'roleName': 'ROLE_'+roleName.value
+        'diaChi': diaChi.value,
+        'matKhau': matKhau.value,
+        'tenVaiTro': 'ROLE_'+tenVaiTro.value
     };
     console.log(data);
-    if (password.value === ''){
+    if (matKhau.value === ''){
         alert("Mật khẩu không được để trống!");
     }else {
         const url = "http://localhost:8080/api/account/save";
@@ -89,7 +89,7 @@ document.getElementById("form_add_account").addEventListener("submit",function (
             })
             .then(function (doiTuongTraVe){
                 alert(doiTuongTraVe.thongBao);
-                getAccount(renderAccount);
+                layTaiKhoan(xuatHTML);
             })
     }
 })

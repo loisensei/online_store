@@ -19,13 +19,13 @@ public class ChiMucGioHang {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "id_san_pham")
     private SanPham sanPham;
 
     private int soLuong;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "id_gio_hang")
     private GioHang gioHang;
 
 }

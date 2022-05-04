@@ -26,24 +26,24 @@
 
     <div class="main-agileinfo">
         <c:if test="${param.loi != null}">
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger" vaiTro="alert">
                 Tên đăng nhập hoặc mật khẩu không đúng!
             </div>
         </c:if>
         <c:if test="${param.dangxuat != null}">
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success" vaiTro="alert">
                 Đăng xuất thành công!
             </div>
         </c:if>
         <c:if test="${param.khongthetruycap != null}">
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-warning" vaiTro="alert">
                 Không thể truy cập trang này!
             </div>
         </c:if>
         <div class="agileits-top">
             <form action="${pageContext.request.contextPath}" method="post">
-                <input class="text" type="text" name="username" placeholder="Tên đăng nhập" required="required"/>
-                <input class="text email" type="password" name="password" placeholder="mật khẩu" required="required">
+                <input class="text" type="text" name="tenDangNhap" placeholder="Tên đăng nhập" required="required"/>
+                <input class="text email" type="password" name="matKhau" placeholder="mật khẩu" required="required">
                 <div class="wthree-text">
                     <label class="anim">
                         <input type="checkbox" class="checkbox" name = "nhomatkhau">

@@ -11,21 +11,21 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Role {
+public class VaiTro {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name")
-    private String roleName;
+    @Column(name = "ten_vai_tro")
+    private String ten;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "role")
-    private Set<User> user;
+    @ManyToMany(mappedBy = "vaiTro")
+    private Set<NguoiDung> nguoiDung;
 
-    public Role(String roleName) {
-        this.roleName = roleName;
+    public VaiTro(String ten) {
+        this.ten = ten;
     }
 
     public Long getId() {

@@ -3,22 +3,22 @@ const profile_form = document.getElementById("profile-form");
 profile_form.addEventListener("submit",function (e){
     e.preventDefault();
 
-    const name = document.getElementById("name");
-    const username = document.getElementById("username");
+    const hoTen = document.getElementById("hoTen");
+    const tenDangNhap = document.getElementById("tenDangNhap");
     const email = document.getElementById("email");
-    const address = document.getElementById("address");
-    const newPassword = document.getElementById("newPassword");
-    const confirmPassword = document.getElementById("confirmPassword");
+    const diaChi = document.getElementById("diaChi");
+    const matKhauMoi = document.getElementById("matKhauMoi");
+    const matKhauXacThuc = document.getElementById("matKhauXacNhan");
 
     const data = {
-        'fullName': name.value,
-        'userName': username.value,
+        'hoTen': hoTen.value,
+        'tenDangNhap': tenDangNhap.value,
         'email': email.value,
-        'address': address.value,
-        'password': confirmPassword.value
+        'diaChi': diaChi.value,
+        'matKhau': matKhauXacThuc.value
     };
-    if (newPassword.value !== confirmPassword.value){
-        document.getElementById('warn-cf-pass').innerHTML = "password incorrect!";
+    if (matKhauMoi.value !== matKhauXacThuc.value){
+        document.getElementById('warn-cf-pass').innerHTML = "Mật khẩu không khớp!";
     }else {
         const url = "http://localhost:8080/api/account/update";
         fetch(url, {
@@ -30,11 +30,11 @@ profile_form.addEventListener("submit",function (e){
         })
             .then(function (response) {
                 if (response.ok) {
-                    alert("change success!");
+                    alert("Thay đổi thành công!");
                 }
             })
             .catch(function (e) {
-                alert("error: " + e);
+                alert("lỗi: " + e);
             })
     }
 

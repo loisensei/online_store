@@ -1,9 +1,9 @@
 package com.ltw.online_store.Controller;
 
 import javax.validation.Valid;
-import com.ltw.online_store.Entity.User;
+import com.ltw.online_store.Entity.NguoiDung;
 import com.ltw.online_store.Service.SecurityService;
-import com.ltw.online_store.Service.UserService;
+import com.ltw.online_store.Service.NguoiDungService;
 import com.ltw.online_store.validator.XacThucNguoiDung;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class DangKyController {
 
     @Autowired
-    private UserService userService;
+    private NguoiDungService nguoiDungService;
 
     @Autowired
     private SecurityService securityService;
@@ -27,22 +27,22 @@ public class DangKyController {
 
     @GetMapping("/dang-ky")
     public String registerPage(Model model){
-        model.addAttribute("newUser",new User());
+        model.addAttribute("newUser",new NguoiDung());
         return "dangky";
     }
 
     @PostMapping("/dang-ky")
-    public String registerProcess(@ModelAttribute("newUser") @Valid User user, BindingResult bindingResult, Model model) {
+    public String registerProcess(@ModelAttribute("newUser") @Valid NguoiDung nguoiDung, BindingResult bindingResult, Model model) {
 
-         xacThucNguoiDung.validate(user, bindingResult);
+         xacThucNguoiDung.validate(nguoiDung, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "dangky";
         }
-        System.out.println(user);
-        userService.saveUser(user);
+        System.out.println(nguoiDung);
+        nguoiDungService.saveUser(nguoiDung);
 
-        securityService.autoLogin(user.getUserName(), user.getPassword());
+        securityService.autoLogin(nguoiDung.getTenDangNhap(), nguoiDung.getMatKhau());
 
         return "redirect:/";
     }

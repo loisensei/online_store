@@ -1,8 +1,8 @@
 package com.ltw.online_store.Controller;
 
-import com.ltw.online_store.Entity.User;
-import com.ltw.online_store.Service.RoleService;
-import com.ltw.online_store.Service.UserService;
+import com.ltw.online_store.Entity.NguoiDung;
+import com.ltw.online_store.Service.VaiTroService;
+import com.ltw.online_store.Service.NguoiDungService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.*;
 public class QuanTriController {
 
     @Autowired
-    private UserService userService;
+    private NguoiDungService nguoiDungService;
 
     @Autowired
-    private RoleService roleService;
+    private VaiTroService vaiTroService;
 
     @ModelAttribute("loggerInUser")
-    public User loggerInUser() {
+    public NguoiDung loggerInUser() {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
-        return userService.findByUserName(au.getName());
+        return nguoiDungService.findByTenDangNhap(au.getName());
     }
 
     @GetMapping("/trang-quan-tri")
@@ -49,14 +49,14 @@ public class QuanTriController {
 
     @GetMapping("/quan-ly-tai-khoan")
     public String accountManagementPage(Model model){
-        model.addAttribute("users",userService.getAll());
-        model.addAttribute("roles",roleService.getAll());
+        model.addAttribute("users", nguoiDungService.getAll());
+        model.addAttribute("roles", vaiTroService.getAll());
         return "admin/taikhoan";
     }
 
     @GetMapping("/delete")
     public String deleteAccount(@RequestParam Long id){
-        userService.deleteById(id);
+        nguoiDungService.deleteById(id);
         return "redirect:/admin/quan-ly-tai-khoan";
     }
 }
