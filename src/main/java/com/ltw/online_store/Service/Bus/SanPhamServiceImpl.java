@@ -10,6 +10,8 @@ import com.ltw.online_store.Service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.ServletContext;
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -22,6 +24,9 @@ public class SanPhamServiceImpl implements SanPhamService {
 
     @Autowired
     private DanhMucService danhMucService;
+
+    @Autowired
+    private ServletContext app;
 
     @Override
     public List<SanPham> tatCaSanPham() {
@@ -40,9 +45,10 @@ public class SanPhamServiceImpl implements SanPhamService {
     }
 
     @Override
-    public void luuSanPham(SanPhamDto sanPhamDto) {
+    public Long luuSanPham(SanPhamDto sanPhamDto) {
         SanPham sanPham = new SanPham();
         sanPham.setAnh(sanPhamDto.getAnh());
+        sanPham.setTen(sanPhamDto.getTen());
         sanPham.setGia(sanPhamDto.getGia());
         System.out.println("nhan hieu: "+nhanHieuService.timTheoId(sanPhamDto.getNhanHieu()));
         sanPham.setNhanHieu(nhanHieuService.timTheoId(sanPhamDto.getNhanHieu()));
@@ -51,9 +57,25 @@ public class SanPhamServiceImpl implements SanPhamService {
         sanPham.setMauSac(sanPhamDto.getMauSac());
         sanPham.setGioiTinh(sanPhamDto.getGioiTinh());
         sanPham.setMoTa(sanPhamDto.getMoTa());
-
         sanPham.setSoLuong(sanPhamDto.getSoLuong());
-        sanPham.setPathAnh("/img/" + sanPhamDto.getAnh().getOriginalFilename());
         sanPhamRepository.save(sanPham);
+        sanPham.setPathAnh("/img/" +sanPham.getId()+ sanPhamDto.getAnh().getOriginalFilename());
+        sanPhamRepository.save(sanPham);
+        return sanPham.getId();
+    }
+
+    @Override
+    public void xoaSanPham(Long id) {
+        SanPham sanPham = sanPhamRepository.findById(id).get();
+        String path = app.getRealPath("/");
+        String filePath = path + "/WEB-INF/template"+sanPham.getPathAnh();
+        File file = new File(filePath);
+        file.delete();
+        sanPhamRepository.deleteById(id);
+    }
+
+    @Override
+    public SanPham timTheoId(Long id) {
+        return sanPhamRepository.findById(id).get();
     }
 }

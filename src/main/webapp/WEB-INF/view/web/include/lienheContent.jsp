@@ -50,3 +50,5 @@
         </div>
     </div>
 </div>
+
+<script src="/js/web/sanpham.js"></script>

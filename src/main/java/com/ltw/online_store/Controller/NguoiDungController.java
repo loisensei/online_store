@@ -3,9 +3,11 @@ package com.ltw.online_store.Controller;
 import com.ltw.online_store.Entity.NhanHieu;
 import com.ltw.online_store.Entity.DanhMuc;
 import com.ltw.online_store.Entity.NguoiDung;
+import com.ltw.online_store.Entity.SanPham;
 import com.ltw.online_store.Service.NhanHieuService;
 import com.ltw.online_store.Service.DanhMucService;
 import com.ltw.online_store.Service.NguoiDungService;
+import com.ltw.online_store.Service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,10 +36,18 @@ public class NguoiDungController {
     @Autowired
     private DanhMucService danhMucService;
 
+    @Autowired
+    private SanPhamService sanPhamService;
+
     @ModelAttribute("loggerInUser")
     public NguoiDung loggerInUser() {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
         return nguoiDungService.findByTenDangNhap(au.getName());
+    }
+
+    @ModelAttribute("cacSanPham")
+    public List<SanPham> cacSanPham(){
+        return sanPhamService.tatCaSanPham();
     }
 
     @ModelAttribute("cacNhanHieu")
@@ -64,9 +75,21 @@ public class NguoiDungController {
         return "web/lienhe";
     }
 
+    @GetMapping("/chi-tiet-san-pham")
+    public String chiTietSanPham(@RequestParam Long id, Model model){
+        model.addAttribute("sanPham",sanPhamService.timTheoId(id));
+        return "web/chitietsanpham";
+    }
+
     @GetMapping("/thong-tin-tai-khoan")
     public String trangThongTinNguoiDung(){
         return "web/thongtin";
+    }
+
+    @GetMapping("/trang-san-pham")
+    public String trangSanPham(@RequestParam(required = false) Long idCategory,Model model){
+        model.addAttribute("idCategory",idCategory);
+        return "web/sanpham";
     }
 
     @GetMapping("/dang-xuat")
@@ -79,5 +102,7 @@ public class NguoiDungController {
         }
         return "redirect:/dang-nhap?dang-xuat";
     }
+
+
 
 }

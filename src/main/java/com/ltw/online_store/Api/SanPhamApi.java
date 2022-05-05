@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletContext;
 import javax.validation.Valid;
 import java.nio.file.Path;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/sanpham")
@@ -25,20 +26,32 @@ public class SanPhamApi {
     @Autowired
     private ServletContext app;
 
+    @GetMapping("/get/all")
+    public List<SanPham> sanPhams(){
+        return sanPhamService.tatCaSanPham();
+    }
+
+    @DeleteMapping("/xoa/{id}")
+    public DoiTuongTraVe xoaSanPhamBoiId(@PathVariable Long id){
+        DoiTuongTraVe doiTuongTraVe = new DoiTuongTraVe();
+        doiTuongTraVe.setThongBao("Xoa thành công");
+        sanPhamService.xoaSanPham(id);
+        return doiTuongTraVe;
+    }
+
     @PostMapping("/luu")
     public DoiTuongTraVe luuSanPham(@ModelAttribute @Valid SanPhamDto sanPhamDto){
         DoiTuongTraVe doiTuongTraVe = new DoiTuongTraVe();
-        System.out.println("Nhan Hieu; "+nhanHieuService.timTheoId(sanPhamDto.getNhanHieu()));
-        System.out.println(sanPhamDto);
         if(sanPhamService.sanPhamTonTai(sanPhamDto.getTen())){
             doiTuongTraVe.setThongBao("Sản phẩm đã tồn tại!");
             return doiTuongTraVe;
         }else {
             String path = app.getRealPath("/");
             try {
-                String filePath = path + "/WEB-INF/template/img/" + sanPhamDto.getAnh().getOriginalFilename();
+                long id = sanPhamService.luuSanPham(sanPhamDto);
+                String filePath = path + "/WEB-INF/template/img/"+id + sanPhamDto.getAnh().getOriginalFilename();
                 sanPhamDto.getAnh().transferTo(Path.of(filePath));
-                sanPhamService.luuSanPham(sanPhamDto);
+
                 System.out.println("filePath: " + filePath);
                 doiTuongTraVe.setThongBao("Lưu thành công");
             } catch (Exception e) {

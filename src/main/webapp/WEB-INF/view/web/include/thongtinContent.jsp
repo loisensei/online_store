@@ -90,3 +90,4 @@
 </div>
 
 <script src="/js/web/thongtin.js"></script>
+<script src="/js/web/sanpham.js"></script>

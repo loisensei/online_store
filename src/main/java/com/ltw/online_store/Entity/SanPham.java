@@ -42,5 +42,6 @@ public class SanPham {
     @JoinColumn(name = "id_nhan_hieu")
     private NhanHieu nhanHieu;
 
+    @Column(length = 6000)
     private String moTa;
 }

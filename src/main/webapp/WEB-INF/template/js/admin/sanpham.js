@@ -1,9 +1,51 @@
 
 function load(){
-
+    laySanPhams(xuatHTML);
 }
 
 load()
+
+function laySanPhams(callback) {
+    const sanPhamsApi = "http://localhost:8080/api/sanpham/get/all";
+    fetch(sanPhamsApi)
+        .then(function (response){
+            return response.json();
+        })
+        .then(callback);
+}
+
+function xuatHTML(sanPhams) {
+    const tbody = document.querySelector("tbody");
+    const htmls = sanPhams.map(function (sanPham) {
+        return `
+            <tr>
+                <td><img src="${sanPham.pathAnh}" alt="" class="img-fluid" style="height: 50px; width: auto;"></td>
+                <td>${sanPham.ten}</td>
+                <td>${sanPham.danhMuc.ten}</td>
+                <td>${sanPham.nhanHieu.ten}</td>
+                <td>${sanPham.gia}VND</td>
+                <td>${sanPham.soLuong}</td>
+                <td><a data-toggle="modal" onclick="xoaSanPham(${sanPham.id})"><i class="fa-solid fa-trash-can" style="color: #620e0e"></i></a></td>
+            </tr>
+        `;
+    })
+    tbody.innerHTML = htmls.join('');
+}
+
+function xoaSanPham(id) {
+    const xoaSanPhamApi = "http://localhost:8080/api/sanpham/xoa/"+id;
+    fetch(xoaSanPhamApi,{
+        method:"DELETE"
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (doiTuongTraVe){
+            alert(doiTuongTraVe.thongBao);
+            laySanPhams(xuatHTML);
+        })
+
+}
 
 document.getElementById("form_them_san_pham").addEventListener("submit",function (e){
     e.preventDefault();
@@ -31,5 +73,7 @@ document.getElementById("form_them_san_pham").addEventListener("submit",function
         })
         .then(function (doiTuongTraVe){
             alert(doiTuongTraVe.thongBao)
+            laySanPhams(xuatHTML);
         })
 })
+

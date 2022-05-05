@@ -48,13 +48,14 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="product.html">Sản phẩm</a>
+                    <a class="nav-link" href="/trang-san-pham">Sản phẩm</a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Danh Mục<span class="caret"></span></a>
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="/trang-san-pham">Danh Mục<span class="caret"></span></a>
                     <ul class="dropdown-menu" >
+                        <li class="btn dropdown-item font-weight-bold" onclick="khiClickDanhMuc(0)">Tất cả</li>
                         <c:forEach items="${cacDanhMuc}" var="danhMuc">
-                        <li><a class="dropdown-item" href="">${danhMuc.ten}</a></li>
+                        <li class="btn dropdown-item font-weight-bold" onclick="khiClickDanhMuc(${danhMuc.id})">${danhMuc.ten}</li>
                         </c:forEach>
                     </ul>
                 </li>

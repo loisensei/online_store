@@ -9,5 +9,7 @@ public interface SanPhamService {
     List<SanPham> tatCaSanPham();
     void luuSanPham(SanPham sanPham);
     boolean sanPhamTonTai(String ten);
-    void luuSanPham(SanPhamDto sanPhamDto);
+    Long luuSanPham(SanPhamDto sanPhamDto);
+    void xoaSanPham(Long id);
+    SanPham timTheoId(Long id);
 }
