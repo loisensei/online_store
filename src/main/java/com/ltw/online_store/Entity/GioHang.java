@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,5 +24,8 @@ public class GioHang {
     @OneToOne
     @JoinColumn(name = "id_nguoi_dung")
     private NguoiDung nguoiDung;
+
+    @OneToMany(mappedBy = "gioHang")
+    private List<ChiMucGioHang> chiMucGioHangs;
 
 }

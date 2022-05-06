@@ -73,3 +73,4 @@
 
 
 <script src="/js/web/sanpham.js"></script>
+<script src="/js/web/themsanpham.js"></script>

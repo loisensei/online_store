@@ -119,7 +119,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <ul class="pagination">
+        <ul class="pagination" id="so-trang">
             <li class="page-item" id="btn-truoc"><a class="page-link">Trước</a></li>
             <li class="page-item"><a class="page-link">1</a></li>
             <li class="page-item"><a class="page-link">2</a></li>
@@ -134,5 +134,5 @@
 
 
 <script src="/js/web/sanpham.js"></script>
-
+<script src="/js/web/themsanpham.js"></script>
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -49,5 +50,14 @@ public class GioHangController {
     @GetMapping("/gio-hang")
     public String cartPage(){
         return "web/giohang";
+    }
+
+    @GetMapping("/them-san-pham")
+    public String themSanPhamVaoGio(HttpServletRequest request){
+        NguoiDung nguoiDung = (NguoiDung) request.getSession().getAttribute("loggerInUser");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("Nguoi dung: "+nguoiDung);
+        System.out.println("au: "+auth.getPrincipal());
+        return "redirect:/trang-chu";
     }
 }

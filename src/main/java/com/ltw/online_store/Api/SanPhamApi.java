@@ -39,6 +39,11 @@ public class SanPhamApi {
         return doiTuongTraVe;
     }
 
+    @GetMapping("/get/{id}")
+    public SanPham sanPhamTheoId(@PathVariable Long id){
+        return sanPhamService.timTheoId(id);
+    }
+
     @PostMapping("/luu")
     public DoiTuongTraVe luuSanPham(@ModelAttribute @Valid SanPhamDto sanPhamDto){
         DoiTuongTraVe doiTuongTraVe = new DoiTuongTraVe();
