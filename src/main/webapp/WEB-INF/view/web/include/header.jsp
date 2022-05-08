@@ -80,9 +80,9 @@
                                 </c:if>
             </ul>
 
-            <form action="search" method="post" class="form-inline my-2 my-lg-0">
+            <form action="/tim-san-pham" class="form-inline my-2 my-lg-0" id="timKiem">
                 <div class="input-group input-group-sm">
-                    <input name="txt" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Tìm kiếm...">
+                    <input name="txt" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Tìm kiếm..." required>
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-secondary btn-number">
                             <i class="fa fa-search"></i>

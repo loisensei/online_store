@@ -1,36 +1,24 @@
-const sanPhamsApi = "http://localhost:8080/api/sanpham/get/all";
+
 var listSanPham = [];
-var tatCaSP = [];
 function load() {
-    var element = document.getElementById("idDanhMuc");
-    let idDanhMuc;
-    if (element) idDanhMuc = document.getElementById("idDanhMuc").value;
-    console.log(idDanhMuc)
-    laySanPhams(idDanhMuc);
-
-
+    laySanPhams();
 }
 load();
-function laySanPhams(id) {
-    id = Number(id);
-    console.log(typeof id);
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+function laySanPhams() {
+    var txt = getUrlParameter("txt");
+    const sanPhamsApi = "http://localhost:8080/api/sanpham/timkiem?txt="+txt;
     fetch(sanPhamsApi)
         .then(function (response){
             return response.json();
         })
         .then(function (sanPhams){
-            tatCaSP = sanPhams;
-            console.log(sanPhams)
-            if(!id){
-                listSanPham = sanPhams;
-            }else{
-                listSanPham = sanPhams.filter( (sanPham) =>{
-                    if(sanPham.danhMuc.id === id){
-                        return sanPham;
-                    }
-                })
-            }
-            sanPhamMoi(listSanPham[listSanPham.length - 1])
+            listSanPham = sanPhams;
             xuatHTML(listSanPham);
         });
 }
@@ -102,45 +90,6 @@ function onClickTrangTruoc() {
 }
 
 
-function khiClickNhanHieu(id) {
-
-    var sanPhamTheoNhanHieu = [];
-    const fun = tatCaSP.map(function (sanPham) {
-        if(sanPham.nhanHieu.id === id){
-            sanPhamTheoNhanHieu.push(sanPham);
-            return sanPham;
-        }
-    })
-    listSanPham = sanPhamTheoNhanHieu;
-    xuatHTML(sanPhamTheoNhanHieu);
-
-}
- function khiClickDanhMuc(id){
-    if(id === 0) window.location = "http://localhost:8080/trang-san-pham";
-    window.location = "http://localhost:8080/trang-san-pham?idCategory="+id;
-     // var sanPhamTheoDanhMuc = [];
-     // const fun = listSanPham.map(function (sanPham) {
-     //     if(sanPham.danhMuc.id === id){
-     //         sanPhamTheoDanhMuc.push(sanPham);
-     //         return sanPham;
-     //     }
-     // })
-     // xuatHTML(sanPhamTheoDanhMuc);
- }
-
- function sanPhamMoi(sanPham){
-    const sanPhamMoi = document.getElementById('sanPhamMoi');
-    if (sanPhamMoi != null){
-        sanPhamMoi.innerHTML = `
-                <div class="card-body">
-                    <img class="img-fluid" src="${sanPham.pathAnh}" />
-                    <h5 class="card-title"><a href="/chi-tiet-san-pham?id=${sanPham.id}" style="color: black">${sanPham.ten}</a></h5>
-                    <p class="card-text">${sanPham.danhMuc.ten} / ${sanPham.nhanHieu.ten}</p>
-                    <p class="bloc_left_price">${sanPham.gia.toLocaleString('vi-VN', {style: 'currency', currency: 'VND'})}</p>
-                </div>
-    `;
-    }
- }
 
 function xuatDanhSachTrang() {
     let html = '';

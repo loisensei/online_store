@@ -1,6 +1,7 @@
 package com.ltw.online_store.Entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +22,9 @@ public class DonHang {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "donHang")
     private List<ChiTietDonHang> chiTiets;
-
-    private String diaChi;
-    private String soDienThoai;
-    private String hoTen;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+7")

@@ -81,6 +81,12 @@ public class NguoiDungController {
         return "web/chitietsanpham";
     }
 
+    @GetMapping("/tim-san-pham")
+    public String timSanPham(Model model) {
+
+        return "web/timsanpham";
+    }
+
     @GetMapping("/thong-tin-tai-khoan")
     public String trangThongTinNguoiDung(){
         return "web/thongtin";

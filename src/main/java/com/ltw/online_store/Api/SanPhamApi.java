@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletContext;
 import javax.validation.Valid;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/sanpham")
@@ -64,5 +66,20 @@ public class SanPhamApi {
             }
         }
         return doiTuongTraVe;
+    }
+
+    @GetMapping("/timkiem")
+    public List<SanPham> timKiem(@RequestParam String txt){
+        List<SanPham> sanPhams = sanPhams();
+        List<SanPham> ketQua = new ArrayList<>();
+        txt = txt.toLowerCase();
+        for(SanPham sanPham : sanPhams) {
+            String chuoi = sanPham.getTen() +" "+ sanPham.getGioiTinh() + " " + sanPham.getMauSac()+ " "+ sanPham.getDanhMuc().getTen()+ " "+sanPham.getNhanHieu().getTen();
+            chuoi = chuoi.toLowerCase(Locale.ROOT);
+            if(chuoi.contains(txt)) {
+                ketQua.add(sanPham);
+            }
+        }
+        return ketQua;
     }
 }

@@ -5,7 +5,10 @@ function soLuongChiMucGioHang() {
             return response.json();
         })
         .then(function (chiMucs) {
-            document.getElementById("soChiMucCuaGioHang").innerHTML = chiMucs.length;
+            if(document.getElementById("soChiMucCuaGioHang") != null){
+                document.getElementById("soChiMucCuaGioHang").innerHTML = chiMucs.length;
+            }
+
         });
 }
 

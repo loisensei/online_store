@@ -72,6 +72,11 @@ public class QuanTriController {
         return "admin/sanpham";
     }
 
+    @GetMapping("/don-hang")
+    public String quanLyDonHang(){
+        return "admin/donhang";
+    }
+
     @GetMapping("/quan-ly-tai-khoan")
     public String accountManagementPage(Model model){
         model.addAttribute("users", nguoiDungService.getAll());

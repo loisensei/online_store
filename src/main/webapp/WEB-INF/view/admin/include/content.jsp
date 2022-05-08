@@ -3,14 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
-<div class="col-md-9 animated bounce">
+<div class="col-md-9 bounce">
     <h3 class="page-header">Danh sách công việc</h3>
     <c:if test = "${listCongViec.soDonHangMoi > 0}">
     <p>Bạn có: <a href='<c:url value="/admin/don-hang" />'> ${listCongViec.soDonHangMoi} đơn hàng mới</a><p>
-    </c:if>
-
-    <c:if test = "${listCongViec.soDonhangChoDuyet > 0}">
-    <p>Bạn có: <a href='<c:url value="/admin/don-hang" />'> ${listCongViec.soDonhangChoDuyet} đơn hàng chờ duyệt</a><p>
     </c:if>
 
     <c:if test = "${listCongViec.soLienHeMoi > 0}">
@@ -19,3 +15,4 @@
 
 </div>
 </div>
+
