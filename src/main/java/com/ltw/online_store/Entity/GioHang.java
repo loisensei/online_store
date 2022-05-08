@@ -1,5 +1,6 @@
 package com.ltw.online_store.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class GioHang {
     @JoinColumn(name = "id_nguoi_dung")
     private NguoiDung nguoiDung;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "gioHang")
     private List<ChiMucGioHang> chiMucGioHangs;
 

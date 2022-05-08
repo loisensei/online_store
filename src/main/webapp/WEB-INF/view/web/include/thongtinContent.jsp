@@ -44,20 +44,20 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="tenDangNhap">Tên đăng nhập</label>
-                            <input type="text" id="tenDangNhap" class="form-control" value="${loggerInUser.tenDangNhap}" readonly/>
+                            <input type="text" id="tenDangNhap" class="form-control" value="${nguoiDungHienTai.tenDangNhap}" readonly/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="hoTen">Họ và tên</label>
-                            <input type="text" id="hoTen" class="form-control" value="${loggerInUser.hoTen}" />
+                            <input type="text" id="hoTen" class="form-control" value="${nguoiDungHienTai.hoTen}" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" value="${loggerInUser.email}" />
+                        <input type="email" class="form-control" id="email" value="${nguoiDungHienTai.email}" />
                     </div>
                     <div class="form-group">
                         <label for="diaChi">Địa chỉ</label>
-                        <input type="text" class="form-control" id="diaChi" value="${loggerInUser.diaChi}" />
+                        <input type="text" class="form-control" id="diaChi" value="${nguoiDungHienTai.diaChi}" />
                     </div>
                     <hr class="my-4" />
                     <div class="row mb-4">

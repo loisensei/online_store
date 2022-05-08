@@ -20,6 +20,8 @@
                                         <div class="p-2 px-3 text-uppercase">Sản Phẩm</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light">
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light">
                                         <div class="py-2 text-uppercase">Đơn Giá</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light">
@@ -31,28 +33,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${list}" var="o">
-                                    <tr>
-                                        <th scope="row">
-                                            <div class="p-2">
-                                                <img src="${o.image}" alt="" width="70" class="img-fluid rounded shadow-sm">
-                                                <div class="ml-3 d-inline-block align-middle">
-                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">${o.name}</a></h5><span class="text-muted font-weight-normal font-italic"></span>
-                                                </div>
-                                            </div>
-                                        </th>
-                                        <td class="align-middle"><strong>${o.price}</strong></td>
-                                        <td class="align-middle">
-                                            <a href="#"><button class="btnSub">-</button></a>
-                                            <strong>${4}</strong>
-                                            <a href="#"><button class="btnAdd">+</button></a>
-                                        </td>
-                                        <td class="align-middle"><a href="#" class="text-dark">
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+<%--                                <c:forEach items="${chiMucs}" var="chiMuc">--%>
+<%--                                    <tr>--%>
+<%--                                        <th scope="row">--%>
+<%--                                            <div class="p-2">--%>
+<%--                                                <img src="${chiMuc.sanPham.pathAnh}" alt="" width="70" class="img-fluid rounded shadow-sm">--%>
+<%--                                                <div class="ml-3 d-inline-block align-middle">--%>
+<%--                                                    <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">${chiMuc.sanPham.ten}</a></h5><span class="text-muted font-weight-normal font-italic"></span>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                        </th>--%>
+<%--                                        <td class="align-middle"><strong>${chiMuc.sanPham.gia * chiMuc.soLuong}</strong></td>--%>
+<%--                                        <td class="align-middle">--%>
+<%--                                            <a href="#"><button class="btnSub">-</button></a>--%>
+<%--                                            <strong>${chiMuc.soLuong}</strong>--%>
+<%--                                            <a href="#"><button class="btnAdd">+</button></a>--%>
+<%--                                        </td>--%>
+<%--                                        <td class="align-middle"><a href="#" class="text-dark">--%>
+<%--                                            <button type="button" class="btn btn-danger">Xóa</button>--%>
+<%--                                        </a>--%>
+<%--                                        </td>--%>
+<%--                                    </tr>--%>
+<%--                                </c:forEach>--%>
                                 </tbody>
                             </table>
                         </div>
@@ -76,13 +78,12 @@
                         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>
                         <div class="p-4">
                             <ul class="list-unstyled mb-4">
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>100 $</strong></li>
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10 $</strong></li>
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>
-                                    <h5 class="font-weight-bold">110 $</h5>
+                                    <h5 class="font-weight-bold" id="tongThanhToan">0 đ</h5>
                                 </li>
-                            </ul><a href="buy" class="btn btn-dark rounded-pill py-2 btn-block">Mua hàng</a>
+                            </ul><a href="/xac-nhan-don-hang" class="btn btn-dark rounded-pill py-2 btn-block">Mua hàng</a>
                         </div>
                     </div>
                 </div>
@@ -91,6 +92,7 @@
         </div>
     </div>
 </div>
+<script src="/js/web/giohang.js"></script>
 <script src="/js/web/sanpham.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

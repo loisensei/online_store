@@ -72,7 +72,7 @@
                                 </c:if>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<%=request.getContextPath()%>/thong-tin-tai-khoan">Xin chào : ${loggerInUser.tenDangNhap}</a>
+                                        <a class="nav-link" href="<%=request.getContextPath()%>/thong-tin-tai-khoan">Xin chào : ${nguoiDungHienTai.tenDangNhap}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="<%=request.getContextPath()%>/dang-xuat">Đăng xuất</a>
@@ -89,13 +89,17 @@
                         </button>
                     </div>
                 </div>
-                <a class="btn btn-success btn-sm ml-3" href="/gio-hang">
-                    <i class="fa fa-shopping-cart"></i> Giỏ hàng
-                    <span class="badge badge-light">99</span>
-                </a>
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <a class="btn btn-success btn-sm ml-3" href="/gio-hang">
+                        <i class="fa fa-shopping-cart"></i> Giỏ hàng
+                        <span class="badge badge-light" id="soChiMucCuaGioHang"></span>
+                    </a>
+                </c:if>
             </form>
         </div>
     </div>
 </nav>
+
+<script src="/js/web/header.js"></script>
 
 

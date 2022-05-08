@@ -32,9 +32,6 @@ public class DonHang {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+7")
     private Date ngayDat;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+7")
-    private Date ngayGiao;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+7")

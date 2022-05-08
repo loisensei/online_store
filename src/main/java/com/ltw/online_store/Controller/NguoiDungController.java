@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
-@SessionAttributes("loggerInUser")
+@SessionAttributes("nguoiDungHienTai")
 public class NguoiDungController {
 
     @Autowired
@@ -39,8 +39,8 @@ public class NguoiDungController {
     @Autowired
     private SanPhamService sanPhamService;
 
-    @ModelAttribute("loggerInUser")
-    public NguoiDung loggerInUser() {
+    @ModelAttribute("nguoiDungHienTai")
+    public NguoiDung nguoiDungHienTai() {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
         return nguoiDungService.findByTenDangNhap(au.getName());
     }

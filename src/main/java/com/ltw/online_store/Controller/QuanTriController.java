@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@SessionAttributes("loggerInUser")
+@SessionAttributes("nguoiDungHienTai")
 @RequestMapping("/admin")
 public class QuanTriController {
 
@@ -41,8 +41,8 @@ public class QuanTriController {
     public List<NhanHieu> layTatCaNhanHieu(){
         return nhanHieuService.getAll();
     }
-    @ModelAttribute("loggerInUser")
-    public NguoiDung loggerInUser() {
+    @ModelAttribute("nguoiDungHienTai")
+    public NguoiDung nguoiDungHienTai() {
         Authentication au = SecurityContextHolder.getContext().getAuthentication();
         return nguoiDungService.findByTenDangNhap(au.getName());
     }

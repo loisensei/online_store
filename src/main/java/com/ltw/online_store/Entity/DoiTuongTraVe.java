@@ -1,9 +1,21 @@
 package com.ltw.online_store.Entity;
 
+import java.util.List;
+
 public class DoiTuongTraVe {
     private Object duLieu;
     private String thongBao;
     private String trangThai;
+
+    public GioHang getGioHang() {
+        return gioHang;
+    }
+
+    public void setGioHang(GioHang gioHang) {
+        this.gioHang = gioHang;
+    }
+
+    private GioHang gioHang;
 
     public DoiTuongTraVe() {
     }

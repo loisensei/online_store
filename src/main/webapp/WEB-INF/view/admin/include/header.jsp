@@ -34,7 +34,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="<c:url value='/admin/thong-tin-tai-khoan' />">
-                        <span class="glyphicon glyphicon-nguoiDung">&nbsp;</span>Xin chào: ${loggerInUser.tenDangNhap }</a>
+                        <span class="glyphicon glyphicon-nguoiDung">&nbsp;</span>Xin chào: ${nguoiDungHienTai.tenDangNhap }</a>
                 </li>
                 <li>
                     <a href="<c:url value='/dang-xuat' />"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a>

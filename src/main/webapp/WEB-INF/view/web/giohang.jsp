@@ -10,7 +10,7 @@
     <!------ Include the above in your HEAD tag ---------->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <title>Trang chủ</title>
+    <title>Giỏ hàng</title>
 </head>
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>

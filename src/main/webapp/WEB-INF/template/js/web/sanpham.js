@@ -73,7 +73,10 @@ function xuatHTML(sanPhams) {
         `;
         }
     })
-    sanPhamView.innerHTML = htmls.join('');
+    if(sanPhamView !== null){
+        sanPhamView.innerHTML = htmls.join('');
+    }
+
 }
 
 function rsTrang(trang){
@@ -126,14 +129,17 @@ function khiClickNhanHieu(id) {
  }
 
  function sanPhamMoi(sanPham){
-    document.getElementById('sanPhamMoi').innerHTML = `
+    const sanPhamMoi = document.getElementById('sanPhamMoi');
+    if (sanPhamMoi != null){
+        sanPhamMoi.innerHTML = `
                 <div class="card-body">
                     <img class="img-fluid" src="${sanPham.pathAnh}" />
-                    <h5 class="card-title">${sanPham.ten}</h5>
+                    <h5 class="card-title"><a href="/chi-tiet-san-pham?id=${sanPham.id}" style="color: black">${sanPham.ten}</a></h5>
                     <p class="card-text">${sanPham.danhMuc.ten} / ${sanPham.nhanHieu.ten}</p>
                     <p class="bloc_left_price">${sanPham.gia.toLocaleString('vi-VN', {style: 'currency', currency: 'VND'})}</p>
                 </div>
     `;
+    }
  }
 
 function xuatDanhSachTrang() {
@@ -145,7 +151,10 @@ function xuatDanhSachTrang() {
         html += `<li class="page-item"><a class="page-link">${i}</a></li>`;
     }
     html += `<li class="page-item" onclick="onClickTrangSau()"><a class="page-link">Sau</a></li>`;
-    document.getElementById("so-trang").innerHTML = html;
+    if(document.getElementById("so-trang") != null){
+        document.getElementById("so-trang").innerHTML = html;
+    }
+
     chuyenTrang()
 }
 

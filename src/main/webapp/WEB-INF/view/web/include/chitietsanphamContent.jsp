@@ -22,10 +22,10 @@
 
                         ${formatter.format(sanPham.gia)}VND<small class="text-success">(36%off)</small>
                     </h2>
-                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart">
-                        <i class="fa fa-shopping-cart"></i>
+                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart" onclick="themSanPham(${sanPham.id})">
+                        <i class="fa fa-shopping-cart" style="width: 60px; font-size: 30px; height: auto"></i>
                     </button>
-                    <button class="btn btn-primary btn-rounded">Mua ngay</button>
+<%--                    <button class="btn btn-primary btn-rounded">Mua ngay</button>--%>
                     <h3 class="box-title mt-5">Điểm nổi bật chính</h3>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-check text-success"></i>Cấu trúc chắc chắn</li>
@@ -67,5 +67,5 @@
         </div>
     </div>
 </div>
-
+<script src="/js/web/themsanpham.js"></script>
 <script src="/js/web/sanpham.js"></script>

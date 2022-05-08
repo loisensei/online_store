@@ -33,6 +33,7 @@ function themVaoGio(id) {
                 }
             }else{
                 alert(dt.thongBao);
+                soLuongChiMucGioHang();
             }
         })
 }
