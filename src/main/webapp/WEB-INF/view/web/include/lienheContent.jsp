@@ -13,7 +13,7 @@
                     <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Liên hệ với chúng tôi.
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="formLienHe">
                             <div class="form-group">
                                 <label for="name">Tên</label>
                                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Nhập tên" required>
@@ -50,5 +50,5 @@
         </div>
     </div>
 </div>
-
+<script src="/js/web/lienhe.js"></script>
 <script src="/js/web/sanpham.js"></script>
