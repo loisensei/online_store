@@ -25,13 +25,13 @@ function xuatHTML(sanPhams) {
                 <td>${sanPham.nhanHieu.ten}</td>
                 <td>${sanPham.gia}VND</td>
                 <td>${sanPham.soLuong}</td>
-                <td><a data-toggle="modal" onclick="xoaSanPham(${sanPham.id})"><i class="fa-solid fa-trash-can" style="color: #620e0e"></i></a></td>
+                <td><button class="btn btn-danger" onclick="xoaSanPham(${sanPham.id})">Xóa</button></td>
             </tr>
         `;
     })
     tbody.innerHTML = htmls.join('');
 }
-
+// xóa sản phẩm
 function xoaSanPham(id) {
     const xoaSanPhamApi = "http://localhost:8080/api/sanpham/xoa/"+id;
     fetch(xoaSanPhamApi,{
